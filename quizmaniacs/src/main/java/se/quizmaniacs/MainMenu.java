@@ -26,8 +26,9 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(MainMenu.this, LobbyMenu.class);
-                myIntent.putExtra("nickname", mainMenuNickField.getText());
                 MainMenu.this.startActivity(myIntent);
+
+                User.setNickname(mainMenuNickField.getText().toString());
             }
         });
     }
