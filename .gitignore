@@ -1,0 +1,12 @@
+/build
+.idea
+.gradle
+gradle
+local.properties
+Ex-jobb.iml
+gradlew
+gradlew.bat
+quizmaniacs/gradlew
+quizmaniacs/gradlew.bat
+quizmaniacs/quizmaniacs.iml
+build.gradle
