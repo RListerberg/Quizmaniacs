@@ -25,6 +25,7 @@ public class LobbyMenu extends AppCompatActivity {
 
         nickname = User.nickname;
         setContentView(R.layout.activity_lobby_menu);
+
         lobbyMenuNickTxt = (TextView) findViewById(R.id.lobbyMenuNickTxt);
         lobbyMenuNickTxt.setText(nickname);
 

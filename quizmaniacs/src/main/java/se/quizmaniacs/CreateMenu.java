@@ -11,6 +11,7 @@ public class CreateMenu extends AppCompatActivity {
 
     private Integer[] arraySpinner;
     private Button createMenuCreateBtn;
+    private Button createMenuCancelBtn;
     private Spinner spinner;
 
     @Override
@@ -22,12 +23,19 @@ public class CreateMenu extends AppCompatActivity {
                 4, 5, 6
         };
 
-        createMenuCreateBtn = (Button) findViewById(R.id.createMenuCreateBtn);
-
+        createMenuCreateBtn = (Button) findViewById(R.id.createMenuCancelBtn);
         createMenuCreateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 createLobby();
+            }
+        });
+
+        createMenuCancelBtn = (Button) findViewById(R.id.createMenuCancelBtn);
+        createMenuCancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 
