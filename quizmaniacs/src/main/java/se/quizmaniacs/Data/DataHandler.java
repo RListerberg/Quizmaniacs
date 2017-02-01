@@ -28,5 +28,6 @@ public class DataHandler {
         writeThread = new ClientWriteThread(socket);
 
         new Thread(readThread).start();
+        new Thread(writeThread).start();
     }
 }

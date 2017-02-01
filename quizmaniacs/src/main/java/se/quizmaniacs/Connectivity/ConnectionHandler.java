@@ -10,7 +10,7 @@ import java.net.Socket;
 public class ConnectionHandler implements Runnable {
     private Socket socket;
     boolean connected = false;
-    private String host = "10.8.1.188";
+    private String host = "10.8.1.54";
     private int port = 8008;
 
 

@@ -8,18 +8,34 @@ import java.net.Socket;
  * Created by LeoAsp on 2017-01-25.
  */
 
-public class ClientWriteThread {
+public class ClientWriteThread implements Runnable {
     private boolean running = true;
-    PrintWriter clientWriter;
+    private PrintWriter out;
+    private String currentMessage = "";
+    private String queuedMessage = "";
 
     public ClientWriteThread(Socket socket) throws IOException {
-        clientWriter = new PrintWriter(socket.getOutputStream(), true);
+        out = new PrintWriter(socket.getOutputStream(), true);
     }
 
 
     public void send(String message) {
-        clientWriter.println();
-        clientWriter.flush();
+        queuedMessage = message;
     }
 
+    @Override
+    public void run() {
+        while (running) {
+            while (!currentMessage.equals(queuedMessage)) {
+                out.println(queuedMessage);
+                currentMessage = queuedMessage;
+                System.out.println("SENT: " + currentMessage);
+
+            }
+        }
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
+    }
 }
