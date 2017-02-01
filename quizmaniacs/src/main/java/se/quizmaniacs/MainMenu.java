@@ -1,21 +1,32 @@
 package se.quizmaniacs;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import static se.quizmaniacs.R.id.mainMenuNickField;
+import java.io.IOException;
+
+import se.quizmaniacs.Controller.Controller;
 
 public class MainMenu extends AppCompatActivity {
 
     Button mainMenuPlayBtn;
     EditText mainMenuNickField;
+    Controller controller;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        try {
+            controller = new Controller();
+            new Thread(controller.getConnectionHandler()).start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
@@ -26,9 +37,17 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(MainMenu.this, LobbyMenu.class);
-                myIntent.putExtra("nickname", mainMenuNickField.getText());
                 MainMenu.this.startActivity(myIntent);
+                User.setNickname(mainMenuNickField.getText().toString());
+                try {
+                    controller.getDataHandler().startThreads(controller.getConnectionHandler().getSocket());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                controller.getDataHandler().send(controller.getCommandHandler().makeSetNickCommand(User.nickname));
+
             }
         });
+
     }
 }
