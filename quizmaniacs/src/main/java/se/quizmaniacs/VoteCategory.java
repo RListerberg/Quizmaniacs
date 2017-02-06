@@ -33,7 +33,9 @@ public class VoteCategory extends AppCompatActivity {
         final List<String> categoryList = new ArrayList<String>(Arrays.asList(categories));
 
         final ArrayAdapter<String> gridViewArrayAdapter = new ArrayAdapter<String>
-                (this, android.R.layout.simple_list_item_1, categoryList);
+                (this, android.R.layout.simple_list_item_1);
+
+        gridViewArrayAdapter.addAll(categories);
 
         gridView.setAdapter(gridViewArrayAdapter);
 
@@ -44,14 +46,14 @@ public class VoteCategory extends AppCompatActivity {
             }
         });
 
-        gridView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                System.out.println(gridView.getSelectedItem());
-
-            }
-        });
+//        gridView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                System.out.println(gridView.getSelectedItem());
+//
+//            }
+//        });
 
     }
 }

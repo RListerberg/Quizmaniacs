@@ -19,7 +19,7 @@
         </activity>
         <activity android:name=".LobbyMenu" />
         <activity android:name=".CreateMenu" />
-        <activity android:name=".VoteCategory"></activity>
+        <activity android:name=".VoteCategory" />
     </application>
 
 </manifest>

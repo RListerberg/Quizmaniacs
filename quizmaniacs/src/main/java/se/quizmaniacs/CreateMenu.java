@@ -1,11 +1,14 @@
 package se.quizmaniacs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import java.io.IOException;
 
 public class CreateMenu extends AppCompatActivity {
 
@@ -23,11 +26,13 @@ public class CreateMenu extends AppCompatActivity {
                 4, 5, 6
         };
 
-        createMenuCreateBtn = (Button) findViewById(R.id.createMenuCancelBtn);
+        createMenuCreateBtn = (Button) findViewById(R.id.createMenuCreateBtn);
         createMenuCreateBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
-            public void onClick(View v) {
-                createLobby();
+            public void onClick(View view) {
+                Intent voteCategoryIntent = new Intent(CreateMenu.this, VoteCategory.class);
+                CreateMenu.this.startActivity(voteCategoryIntent);
             }
         });
 
@@ -48,6 +53,8 @@ public class CreateMenu extends AppCompatActivity {
 
     private void createLobby(){
         int maxPlayers = Integer.parseInt(spinner.getSelectedItem().toString());
+
+
     }
 
 }
