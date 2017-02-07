@@ -14,7 +14,6 @@ public class DataHandler {
     ClientReadThread readThread;
     ClientWriteThread writeThread;
 
-
     public DataHandler() {
 
     }

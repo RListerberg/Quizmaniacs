@@ -7,7 +7,7 @@ package se.quizmaniacs;
 class User {
     static String nickname;
 
-    static void setNickname(String nickname){
-        User.nickname =nickname;
+    static void setNickname(String nickname) {
+        User.nickname = nickname;
     }
 }

@@ -1,24 +1,6 @@
 package se.quizmaniacs;
 
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-
-import se.quizmaniacs.Graphics.PieHelper;
-import se.quizmaniacs.Graphics.PieView;
 
 public class PieChartMain extends AppCompatActivity {
 //    private TextView txtinfo;
