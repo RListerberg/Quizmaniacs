@@ -2,8 +2,6 @@ package se.quizmaniacs.Commands;
 
 import com.google.gson.Gson;
 
-import java.util.List;
-
 /**
  * Created by LeoAsp on 2017-01-30.
  */
@@ -18,7 +16,7 @@ public class CommandCreator {
         return stringCommand;
     }
 
-    public String makeGetCategoriesCommand(){
+    public String makeGetCategoriesCommand() {
         Command command = new Command(CommandType.GETCATEGORIES, "");
         String stringCommand = (new Gson().toJson(command));
         System.out.println("MADE: " + stringCommand);
