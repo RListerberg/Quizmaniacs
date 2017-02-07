@@ -38,6 +38,7 @@ public class MainMenu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent myIntent = new Intent(MainMenu.this, LobbyMenu.class);
                 MainMenu.this.startActivity(myIntent);
+
                 User.setNickname(mainMenuNickField.getText().toString());
                 try {
                     controller.getDataHandler().startThreads(controller.getConnectionHandler().getSocket());
