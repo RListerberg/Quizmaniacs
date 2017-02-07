@@ -36,17 +36,17 @@ public class MainMenu extends AppCompatActivity {
         mainMenuPlayBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(MainMenu.this, LobbyMenu.class);
-                MainMenu.this.startActivity(myIntent);
-
                 User.setNickname(mainMenuNickField.getText().toString());
                 try {
                     controller.getDataHandler().startThreads(controller.getConnectionHandler().getSocket());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                controller.getDataHandler().send(controller.getCommandCreator().makeSetNickCommand(User.nickname));
 
+                controller.getDataHandler().send(controller.getCommandMaker().makeSetNickCommand(User.nickname));
+                controller.getDataHandler().send(controller.getCommandMaker().makeGetLobbyAct());
+
+                //startActivity(new Intent(MainMenu.this, LobbyMenu.class));
             }
         });
 

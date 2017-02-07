@@ -10,5 +10,6 @@ quizmaniacs/gradlew
 quizmaniacs/gradlew.bat
 quizmaniacs/quizmaniacs.iml
 build.gradle
+WEB-INF
 libs/
 src/main/res/drawable/
