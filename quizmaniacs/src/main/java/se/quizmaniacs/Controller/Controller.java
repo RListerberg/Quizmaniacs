@@ -3,6 +3,7 @@ package se.quizmaniacs.Controller;
 import java.io.IOException;
 
 import se.quizmaniacs.Commands.CommandHandler;
+import se.quizmaniacs.Commands.CommandMaker;
 import se.quizmaniacs.Connectivity.ConnectionHandler;
 import se.quizmaniacs.Data.DataHandler;
 
@@ -13,12 +14,14 @@ import se.quizmaniacs.Data.DataHandler;
 public class Controller {
     private DataHandler dataHandler;
     private ConnectionHandler connectionHandler;
+    private CommandMaker commandMaker;
     private CommandHandler commandHandler;
 
     public Controller() throws IOException {
-        this.connectionHandler = new ConnectionHandler();
-        this.dataHandler = new DataHandler();
-        this.commandHandler = new CommandHandler();
+        this.connectionHandler = new ConnectionHandler(this);
+        this.dataHandler = new DataHandler(this);
+        this.commandMaker = new CommandMaker(this);
+        this.commandHandler = new CommandHandler(this);
     }
 
     public DataHandler getDataHandler() {
@@ -31,5 +34,9 @@ public class Controller {
 
     public CommandHandler getCommandHandler() {
         return commandHandler;
+    }
+
+    public CommandMaker getCommandMaker() {
+        return commandMaker;
     }
 }

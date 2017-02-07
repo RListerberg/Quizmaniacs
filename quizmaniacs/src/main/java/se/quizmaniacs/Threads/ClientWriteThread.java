@@ -3,34 +3,39 @@ package se.quizmaniacs.Threads;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
+
+import se.quizmaniacs.Controller.Controller;
 
 /**
  * Created by LeoAsp on 2017-01-25.
  */
 
 public class ClientWriteThread implements Runnable {
+    Controller controller;
     private boolean running = true;
     private PrintWriter out;
-    private String currentMessage = "";
-    private String queuedMessage = "";
+    private List<String> queuedMessages;
 
-    public ClientWriteThread(Socket socket) throws IOException {
+    public ClientWriteThread(Controller controller, Socket socket) throws IOException {
+        this.controller = controller;
+        queuedMessages = new ArrayList<>();
         out = new PrintWriter(socket.getOutputStream(), true);
     }
 
 
     public void send(String message) {
-        queuedMessage = message;
+        queuedMessages.add(message);
     }
 
     @Override
     public void run() {
         while (running) {
-            while (!currentMessage.equals(queuedMessage)) {
-                out.println(queuedMessage);
-                currentMessage = queuedMessage;
-                System.out.println("SENT: " + currentMessage);
-
+            while (queuedMessages.size() != 0) {
+                out.println(queuedMessages.get(0));
+                System.out.println("SENT: " + queuedMessages.get(0));
+                queuedMessages.remove(0);
             }
         }
     }
