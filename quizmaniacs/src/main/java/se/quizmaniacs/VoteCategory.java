@@ -30,7 +30,6 @@ public class VoteCategory extends AppCompatActivity {
                 "Harry Potter"
         };
 
-        final List<String> categoryList = new ArrayList<String>(Arrays.asList(categories));
 
         final ArrayAdapter<String> gridViewArrayAdapter = new ArrayAdapter<String>
                 (this, android.R.layout.simple_list_item_1);
