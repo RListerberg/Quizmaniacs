@@ -45,8 +45,6 @@
         android:padding="10dp"
         android:minHeight="30dp"
         android:minWidth="20dp"
-        android:layout_alignRight="@+id/button"
-        android:layout_alignEnd="@+id/button"
         android:layout_marginRight="20dp" />
 
     <Button

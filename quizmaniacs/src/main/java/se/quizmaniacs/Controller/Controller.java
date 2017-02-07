@@ -2,7 +2,7 @@ package se.quizmaniacs.Controller;
 
 import java.io.IOException;
 
-import se.quizmaniacs.Commands.CommandHandler;
+import se.quizmaniacs.Commands.CommandCreator;
 import se.quizmaniacs.Connectivity.ConnectionHandler;
 import se.quizmaniacs.Data.DataHandler;
 
@@ -13,12 +13,12 @@ import se.quizmaniacs.Data.DataHandler;
 public class Controller {
     private DataHandler dataHandler;
     private ConnectionHandler connectionHandler;
-    private CommandHandler commandHandler;
+    private CommandCreator commandCreator;
 
     public Controller() throws IOException {
         this.connectionHandler = new ConnectionHandler();
         this.dataHandler = new DataHandler();
-        this.commandHandler = new CommandHandler();
+        this.commandCreator = new CommandCreator();
     }
 
     public DataHandler getDataHandler() {
@@ -29,7 +29,7 @@ public class Controller {
         return connectionHandler;
     }
 
-    public CommandHandler getCommandHandler() {
-        return commandHandler;
+    public CommandCreator getCommandCreator() {
+        return commandCreator;
     }
 }

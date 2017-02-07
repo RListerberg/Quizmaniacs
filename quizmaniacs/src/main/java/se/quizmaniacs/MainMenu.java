@@ -45,7 +45,7 @@ public class MainMenu extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                controller.getDataHandler().send(controller.getCommandHandler().makeSetNickCommand(User.nickname));
+                controller.getDataHandler().send(controller.getCommandCreator().makeSetNickCommand(User.nickname));
 
             }
         });
