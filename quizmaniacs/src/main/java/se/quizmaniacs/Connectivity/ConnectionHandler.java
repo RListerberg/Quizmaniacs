@@ -12,7 +12,7 @@ import se.quizmaniacs.Controller.Controller;
 public class ConnectionHandler implements Runnable {
     private Socket socket;
     boolean connected = false;
-    private String host = "10.8.1.110";
+    private String host = "10.8.1.103";
     private int port = 8008;
 
 
