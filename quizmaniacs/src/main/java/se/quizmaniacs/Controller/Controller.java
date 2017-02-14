@@ -12,29 +12,29 @@ import se.quizmaniacs.Data.DataHandler;
  */
 
 public class Controller {
-    private DataHandler dataHandler;
-    private ConnectionHandler connectionHandler;
-    private CommandMaker commandMaker;
-    private CommandHandler commandHandler;
+    private static DataHandler dataHandler;
+    private static ConnectionHandler connectionHandler;
+    private static CommandMaker commandMaker;
+    private static CommandHandler commandHandler;
 
     public Controller() throws IOException {
-        this.connectionHandler = new ConnectionHandler(this);
-        this.dataHandler = new DataHandler(this);
-        this.commandMaker = new CommandMaker(this);
-        this.commandHandler = new CommandHandler(this);
+        connectionHandler = new ConnectionHandler(this);
+        dataHandler = new DataHandler(this);
+        commandMaker = new CommandMaker(this);
+        commandHandler = new CommandHandler(this);
     }
 
-    public DataHandler getDataHandler() {
+    public static DataHandler getDataHandler() {
         return dataHandler;
     }
 
-    public ConnectionHandler getConnectionHandler() {
+    public static ConnectionHandler getConnectionHandler() {
         return connectionHandler;
     }
 
-    public CommandHandler getCommandHandler() {return commandHandler;}
+    public static CommandHandler getCommandHandler() {return commandHandler;}
 
-    public CommandMaker getCommandMaker() {
+    public static CommandMaker getCommandMaker() {
         return commandMaker;
     }
 }

@@ -5,5 +5,5 @@ package se.quizmaniacs.Commands;
  */
 
 public enum CommandType {
-    SETNICK, DRAWLOBBYACT, GETLOBBYACT, GETCATEGORIES
+    SETNICK, DRAWLOBBYACT, GETLOBBYACT, GETCATEGORIES, CREATEROOM
 }

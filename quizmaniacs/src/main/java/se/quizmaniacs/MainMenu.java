@@ -22,7 +22,7 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         try {
             controller = new Controller();
-            new Thread(controller.getConnectionHandler()).start();
+            new Thread(Controller.getConnectionHandler()).start();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -39,13 +39,13 @@ public class MainMenu extends AppCompatActivity {
 
                 User.setNickname(mainMenuNickField.getText().toString());
                 try {
-                    controller.getDataHandler().startThreads(controller.getConnectionHandler().getSocket());
+                    Controller.getDataHandler().startThreads(Controller.getConnectionHandler().getSocket());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
-                controller.getDataHandler().send(controller.getCommandMaker().makeSetNickCommand(User.nickname));
-                controller.getDataHandler().send(controller.getCommandMaker().makeGetLobbyAct());
+                Controller.getDataHandler().send(Controller.getCommandMaker().makeSetNickCommand(User.nickname));
+                Controller.getDataHandler().send(Controller.getCommandMaker().makeGetLobbyAct());
 
                 Intent mainMenuIntent = new Intent(MainMenu.this, LobbyMenu.class);
                 MainMenu.this.startActivity(mainMenuIntent);

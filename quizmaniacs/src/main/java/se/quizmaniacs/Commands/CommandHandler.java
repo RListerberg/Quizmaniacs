@@ -25,6 +25,7 @@ public class CommandHandler {
             case DRAWLOBBYACT:
                 System.out.println("RECIEVED " + command.type);
                 break;
+
             default:
                 System.out.println("Command Type Could Not Be Resolved");
                 break;

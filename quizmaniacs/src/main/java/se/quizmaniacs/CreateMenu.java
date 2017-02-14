@@ -6,13 +6,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+
+import se.quizmaniacs.Controller.Controller;
 
 public class CreateMenu extends AppCompatActivity {
 
     private Integer[] arraySpinner;
     private Button createMenuCreateBtn;
     private Button createMenuCancelBtn;
+    private EditText createMenuEditTxt;
     private Spinner spinner;
 
     @Override
@@ -29,8 +33,7 @@ public class CreateMenu extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent voteCategoryIntent = new Intent(CreateMenu.this, VoteCategory.class);
-                CreateMenu.this.startActivity(voteCategoryIntent);
+            createRoom();
             }
         });
 
@@ -42,6 +45,8 @@ public class CreateMenu extends AppCompatActivity {
             }
         });
 
+        createMenuEditTxt = (EditText) findViewById(R.id.createMenuRoomNameField);
+
         spinner = (Spinner) findViewById(R.id.createMenuMaxPlayersSpinner);
         ArrayAdapter<Integer> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, arraySpinner);
@@ -49,9 +54,17 @@ public class CreateMenu extends AppCompatActivity {
 
     }
 
-    private void createLobby() {
+    private void createRoom() {
         int maxPlayers = Integer.parseInt(spinner.getSelectedItem().toString());
 
+
+
+        Controller.getDataHandler().send(Controller.getCommandMaker().makeCreateRoomCommand(new Room(createMenuEditTxt.getText().toString(), maxPlayers)));
+
+
+
+        Intent voteCategoryIntent = new Intent(CreateMenu.this, VoteCategory.class);
+        CreateMenu.this.startActivity(voteCategoryIntent);
 
     }
 
