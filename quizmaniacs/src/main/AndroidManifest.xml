@@ -20,6 +20,7 @@
         <activity android:name=".LobbyMenu" />
         <activity android:name=".CreateMenu" />
         <activity android:name=".VoteCategory" />
+        <activity android:name=".RoomMenu"></activity>
     </application>
 
 </manifest>

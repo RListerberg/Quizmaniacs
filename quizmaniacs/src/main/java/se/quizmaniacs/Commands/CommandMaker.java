@@ -44,4 +44,18 @@ public class CommandMaker {
         return stringCommand;
     }
 
+    public String makePlayerReadyCommand(){
+        Command command = new Command(CommandType.PLAYERREADY, "");
+        String stringCommand = gson.toJson(command);
+        System.out.println("MADE: " + stringCommand);
+        return stringCommand;
+    }
+
+    public String makePlayerLeaveCommand(){
+        Command command = new Command(CommandType.PLAYERLEAVE, "");
+        String stringCommand = gson.toJson(command);
+        System.out.println("MADE: " + stringCommand);
+        return stringCommand;
+    }
+
 }
