@@ -15,17 +15,11 @@ public class MainMenu extends AppCompatActivity {
 
     Button mainMenuPlayBtn;
     EditText mainMenuNickField;
-    Controller controller;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        try {
-            controller = new Controller();
-            new Thread(controller.getConnectionHandler()).start();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        new Thread(Controller.getConnectionHandler()).start();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
@@ -36,16 +30,15 @@ public class MainMenu extends AppCompatActivity {
         mainMenuPlayBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                User.setNickname(mainMenuNickField.getText().toString());
+                String nick = mainMenuNickField.getText().toString();
                 try {
-                    controller.getDataHandler().startThreads(controller.getConnectionHandler().getSocket());
+                    Controller.getDataHandler().startThreads(Controller.getConnectionHandler().getSocket());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                controller.getDataHandler().send(controller.getCommandMaker().makeSetNickCommand(User.nickname));
-                controller.getDataHandler().send(controller.getCommandMaker().makeGetLobbyAct());
-
-                //startActivity(new Intent(MainMenu.this, LobbyMenu.class));
+                Controller.getDataHandler().send(Controller.getCommandMaker().makeSetNickCommand(nick));
+                Controller.getDataHandler().send(Controller.getCommandMaker().makeGetLobbyAct());
+                startActivity(new Intent(MainMenu.this, LobbyMenu.class));
             }
         });
 

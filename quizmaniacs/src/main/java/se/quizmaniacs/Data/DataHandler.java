@@ -3,7 +3,6 @@ package se.quizmaniacs.Data;
 import java.io.IOException;
 import java.net.Socket;
 
-import se.quizmaniacs.Controller.Controller;
 import se.quizmaniacs.Threads.ClientReadThread;
 import se.quizmaniacs.Threads.ClientWriteThread;
 
@@ -12,12 +11,10 @@ import se.quizmaniacs.Threads.ClientWriteThread;
  */
 
 public class DataHandler {
-    Controller controller;
     ClientReadThread readThread;
     ClientWriteThread writeThread;
 
-    public DataHandler(Controller controller) {
-        this.controller = controller;
+    public DataHandler() {
     }
 
     public void send(String message) {
@@ -25,8 +22,8 @@ public class DataHandler {
     }
 
     public void startThreads(Socket socket) throws IOException {
-        readThread = new ClientReadThread(controller, socket);
-        writeThread = new ClientWriteThread(controller, socket);
+        readThread = new ClientReadThread(socket);
+        writeThread = new ClientWriteThread(socket);
 
         new Thread(readThread).start();
         new Thread(writeThread).start();

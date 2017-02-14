@@ -13,13 +13,11 @@ import se.quizmaniacs.Controller.Controller;
  */
 
 public class ClientWriteThread implements Runnable {
-    Controller controller;
     private boolean running = true;
     private PrintWriter out;
     private List<String> queuedMessages;
 
-    public ClientWriteThread(Controller controller, Socket socket) throws IOException {
-        this.controller = controller;
+    public ClientWriteThread(Socket socket) throws IOException {
         queuedMessages = new ArrayList<>();
         out = new PrintWriter(socket.getOutputStream(), true);
     }

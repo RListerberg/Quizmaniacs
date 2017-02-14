@@ -2,8 +2,6 @@ package se.quizmaniacs.Commands;
 
 import com.google.gson.Gson;
 
-import se.quizmaniacs.Controller.Controller;
-
 /**
  * Created by LeoAsp on 2017-01-30.
  */
@@ -11,7 +9,7 @@ import se.quizmaniacs.Controller.Controller;
 public class CommandMaker {
     Gson gson = new Gson();
 
-    public CommandMaker(Controller controller) {
+    public CommandMaker() {
     }
 
     public String makeSetNickCommand(String nick) {

@@ -8,8 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import java.io.IOException;
-
 public class CreateMenu extends AppCompatActivity {
 
     private Integer[] arraySpinner;
@@ -51,7 +49,7 @@ public class CreateMenu extends AppCompatActivity {
 
     }
 
-    private void createLobby(){
+    private void createLobby() {
         int maxPlayers = Integer.parseInt(spinner.getSelectedItem().toString());
 
 
