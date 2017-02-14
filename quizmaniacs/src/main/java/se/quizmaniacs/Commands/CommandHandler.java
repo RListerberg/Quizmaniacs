@@ -26,9 +26,9 @@ public class CommandHandler {
     public void handle(String message) {
         Command command = parser.parse(message);
         switch (command.type) {
-            case DRAWLOBBYACT:
+            case UPDATELOBBYLIST:
                 System.out.println("RECIEVIED " + command.type);
-                Type roomArrayListToken = new TypeToken<ArrayList<Room>>() {}.getType();
+                Type roomArrayListToken = new TypeToken<ArrayList<Room>>(){}.getType();
                 System.out.println(command.data);
                 DataBank.rooms = new Gson().fromJson(command.data, roomArrayListToken);
                 break;
