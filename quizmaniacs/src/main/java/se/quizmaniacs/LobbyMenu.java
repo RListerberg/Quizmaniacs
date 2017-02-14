@@ -1,6 +1,7 @@
 package se.quizmaniacs;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -40,7 +41,8 @@ public class LobbyMenu extends AppCompatActivity {
         lobbyMenuCreateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent myIntent = new Intent(LobbyMenu.this, CreateMenu.class);
+                startActivity(myIntent);
             }
         });
 

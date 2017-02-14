@@ -60,7 +60,6 @@ public class CreateMenu extends AppCompatActivity {
         int maxPlayers = Integer.parseInt(spinner.getSelectedItem().toString());
 
 
-
         Controller.getDataHandler().send(Controller.getCommandMaker().makeCreateRoomCommand(new Room(createMenuEditTxt.getText().toString(), maxPlayers)));
 
 
