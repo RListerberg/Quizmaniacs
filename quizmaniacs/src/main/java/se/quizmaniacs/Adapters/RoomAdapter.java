@@ -33,8 +33,8 @@ public class RoomAdapter extends ArrayAdapter {
         TextView roomName = (TextView) convertView.findViewById(R.id.roomName);
         TextView roomPlayers = (TextView) convertView.findViewById(R.id.roomPlayers);
         // Populate the data into the template view using the data object
-        roomName.setText(room.roomName);
-        roomPlayers.setText(room.playersConected + "/" + room.maxPlayers);
+        roomName.setText(room.getName());
+        roomPlayers.setText(room.getConnectedPlayers() + "/" + room.getMaxPlayers());
         // Return the completed view to render on screen
         return convertView;
     }
