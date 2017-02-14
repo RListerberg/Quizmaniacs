@@ -2,7 +2,8 @@ package se.quizmaniacs.Commands;
 
 import com.google.gson.Gson;
 
-import se.quizmaniacs.Room;
+import se.quizmaniacs.Jdo.Room;
+
 
 /**
  * Created by LeoAsp on 2017-01-30.
