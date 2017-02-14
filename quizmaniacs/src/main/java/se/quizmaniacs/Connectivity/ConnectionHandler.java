@@ -3,8 +3,6 @@ package se.quizmaniacs.Connectivity;
 import java.io.IOException;
 import java.net.Socket;
 
-import se.quizmaniacs.Controller.Controller;
-
 /**
  * Created by LeoAsp on 2017-01-25.
  */
@@ -12,11 +10,11 @@ import se.quizmaniacs.Controller.Controller;
 public class ConnectionHandler implements Runnable {
     private Socket socket;
     boolean connected = false;
-    private String host = "10.8.1.119";
+    private String host = "10.8.1.215";
     private int port = 8008;
 
 
-    public ConnectionHandler(Controller controller) {
+    public ConnectionHandler() {
     }
 
 

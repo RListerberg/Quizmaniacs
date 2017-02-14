@@ -10,21 +10,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="se.quizmaniacs.LobbyMenu">
 
-    <ScrollView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/lobbyMenuOpenGamesTxt"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="150dp"
-        android:id="@+id/lobbyMenuRoomsScrollView">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+        android:id="@+id/lobbyMenuRoomListView"
+        android:minHeight="63dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="60dp"
+        android:dividerHeight="4.0sp"/>
 
     <Button
         android:text="Back"

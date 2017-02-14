@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+
 import se.quizmaniacs.Controller.Controller;
 
 public class CreateMenu extends AppCompatActivity {
@@ -55,6 +56,7 @@ public class CreateMenu extends AppCompatActivity {
     }
 
     private void createRoom() {
+
         int maxPlayers = Integer.parseInt(spinner.getSelectedItem().toString());
 
 

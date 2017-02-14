@@ -12,14 +12,12 @@ import se.quizmaniacs.Controller.Controller;
  */
 
 public class ClientReadThread implements Runnable {
-    Controller controller;
-    Socket socket;
-    Scanner in;
+    private Socket socket;
+    private Scanner in;
     private boolean running = true;
 
 
-    public ClientReadThread(Controller controller, Socket socket) throws IOException {
-        this.controller = controller;
+    public ClientReadThread(Socket socket) throws IOException {
         this.socket = socket;
         in = new Scanner(new InputStreamReader(socket.getInputStream()));
     }
@@ -31,7 +29,7 @@ public class ClientReadThread implements Runnable {
             while (in.hasNext()) {
                 incomingMessage = in.nextLine();
                 System.out.println("RECIVED: " + incomingMessage);
-                controller.getCommandHandler().handle(incomingMessage);
+                Controller.getCommandHandler().handle(incomingMessage);
 
             }
         }

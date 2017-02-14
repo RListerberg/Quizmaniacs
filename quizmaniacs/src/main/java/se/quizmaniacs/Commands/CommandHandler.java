@@ -2,8 +2,14 @@ package se.quizmaniacs.Commands;
 
 import com.google.gson.Gson;
 
-import se.quizmaniacs.Controller.Controller;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
 import se.quizmaniacs.Data.Parser;
+import se.quizmaniacs.DataBank;
+import se.quizmaniacs.Jdo.Room;
 
 /**
  * Created by LeoAsp on 2017-02-07.
@@ -11,11 +17,9 @@ import se.quizmaniacs.Data.Parser;
 
 
 public class CommandHandler {
-    Controller controller;
     Parser parser;
 
-    public CommandHandler(Controller controller) {
-        this.controller = controller;
+    public CommandHandler() {
         parser = new Parser();
     }
 
@@ -23,7 +27,10 @@ public class CommandHandler {
         Command command = parser.parse(message);
         switch (command.type) {
             case DRAWLOBBYACT:
-                System.out.println("RECIEVED " + command.type);
+                System.out.println("RECIEVIED " + command.type);
+                Type roomArrayListToken = new TypeToken<ArrayList<Room>>() {}.getType();
+                System.out.println(command.data);
+                DataBank.rooms = new Gson().fromJson(command.data, roomArrayListToken);
                 break;
 
             default:

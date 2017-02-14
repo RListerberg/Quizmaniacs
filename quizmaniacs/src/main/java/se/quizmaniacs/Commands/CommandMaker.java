@@ -2,7 +2,6 @@ package se.quizmaniacs.Commands;
 
 import com.google.gson.Gson;
 
-import se.quizmaniacs.Controller.Controller;
 import se.quizmaniacs.Room;
 
 /**
@@ -12,7 +11,7 @@ import se.quizmaniacs.Room;
 public class CommandMaker {
     Gson gson = new Gson();
 
-    public CommandMaker(Controller controller) {
+    public CommandMaker() {
     }
 
     public String makeSetNickCommand(String nick) {
@@ -36,7 +35,7 @@ public class CommandMaker {
         return stringCommand;
     }
 
-    public String makeCreateRoomCommand(Room room){
+    public String makeCreateRoomCommand(Room room) {
         Command command = new Command(CommandType.CREATEROOM, room.toString());
         String stringCommand = gson.toJson(command);
         System.out.println("MADE: " + stringCommand);
