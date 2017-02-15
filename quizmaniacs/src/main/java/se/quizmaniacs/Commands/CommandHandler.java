@@ -47,10 +47,13 @@ public class CommandHandler {
                         nick.setText(DataBank.nickname);
                     }
                 });
-
                 System.out.println("Nickname = " + command.data);
                 break;
+            case PLAYERJOIN:
+                System.out.println("RECEIVED: " + command.type);
 
+
+                break;
             default:
                 System.out.println("Command Type Could Not Be Resolved");
                 break;

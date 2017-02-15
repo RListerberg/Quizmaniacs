@@ -8,8 +8,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import se.quizmaniacs.Controller.Controller;
-import se.quizmaniacs.Data.DataHandler;
-import se.quizmaniacs.Jdo.User;
 
 public class RoomMenu extends AppCompatActivity {
 
