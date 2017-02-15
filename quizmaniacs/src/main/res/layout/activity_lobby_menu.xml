@@ -10,67 +10,73 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="se.quizmaniacs.LobbyMenu">
 
-    <ListView
+    <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lobbyMenuRoomListView"
-        android:minHeight="63dp"
-        android:paddingTop="30dp"
-        android:paddingBottom="60dp"
-        android:dividerHeight="4.0sp"/>
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/lobbyMenuRoomListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dividerHeight="4.0sp"
+            android:minHeight="63dp"
+            android:paddingBottom="60dp"
+            android:paddingTop="30dp" />
+    </android.support.v4.widget.SwipeRefreshLayout>
 
     <Button
-        android:text="Back"
+        android:id="@+id/lobbyMenuBackBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lobbyMenuBackBtn"
-        android:minHeight="50dp"
-        android:minWidth="100dp"
         android:layout_alignBaseline="@+id/lobbyMenuJoinBtn"
         android:layout_alignBottom="@+id/lobbyMenuJoinBtn"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:text="Join"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lobbyMenuJoinBtn"
         android:minHeight="50dp"
         android:minWidth="100dp"
+        android:text="Back" />
+
+    <Button
+        android:id="@+id/lobbyMenuJoinBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/lobbyMenuCreateBtn"
         android:layout_alignBottom="@+id/lobbyMenuCreateBtn"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lobbyMenuNickTxt"
-        android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textStyle="bold"
-        android:hint="Nickname" />
-
-    <Button
-        android:text="Create"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lobbyMenuCreateBtn"
+        android:layout_centerHorizontal="true"
         android:minHeight="50dp"
         android:minWidth="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:text="Join" />
 
     <TextView
-        android:text="Open Games"
+        android:id="@+id/lobbyMenuNickTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lobbyMenuOpenGamesTxt"
-        android:textSize="20sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
+        android:hint="Nickname"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/lobbyMenuCreateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:minHeight="50dp"
+        android:minWidth="100dp"
+        android:text="Create" />
+
+    <TextView
+        android:id="@+id/lobbyMenuOpenGamesTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Open Games"
+        android:textSize="20sp" />
 </RelativeLayout>
