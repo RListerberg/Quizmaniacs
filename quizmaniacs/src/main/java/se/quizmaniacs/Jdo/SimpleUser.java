@@ -4,10 +4,10 @@ package se.quizmaniacs.Jdo;
  * Created by LeoAsp on 2017-02-13.
  */
 
-public class User {
+public class SimpleUser {
     private String nickname;
 
-    public User(String nickname) {
+    public SimpleUser(String nickname) {
         this.nickname = nickname;
     }
 

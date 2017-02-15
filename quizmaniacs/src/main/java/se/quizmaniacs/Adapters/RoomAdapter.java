@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import se.quizmaniacs.Jdo.Room;
+import se.quizmaniacs.Jdo.SimpleRoom;
 import se.quizmaniacs.R;
 
 /**
@@ -17,14 +17,14 @@ import se.quizmaniacs.R;
  */
 
 public class RoomAdapter extends ArrayAdapter {
-    public RoomAdapter(Context context, ArrayList<Room> rooms) {
+    public RoomAdapter(Context context, ArrayList<SimpleRoom> rooms) {
         super(context, 0, rooms);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        Room room = (Room) getItem(position);
+        SimpleRoom room = (SimpleRoom) getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_room, parent, false);

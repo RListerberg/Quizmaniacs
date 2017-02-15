@@ -6,13 +6,14 @@ import java.util.List;
  * Created by LeoAsp on 2017-02-13.
  */
 
-public class Room {
+public class SimpleRoom {
+    int id;
     String name;
     int connectedPlayers;
     int maxPlayers;
     List<String> categories;
 
-    public Room(String name, int maxPlayers) {
+    public SimpleRoom(String name, int maxPlayers) {
         this.name = name;
         this.connectedPlayers = 0;
         this.maxPlayers = maxPlayers;
@@ -48,5 +49,13 @@ public class Room {
 
     public void setCategories(List<String> categories) {
         this.categories = categories;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
