@@ -26,7 +26,7 @@ public class LobbyMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        DataBank.lobbyMenu = this;
 
         setContentView(R.layout.activity_lobby_menu);
 
