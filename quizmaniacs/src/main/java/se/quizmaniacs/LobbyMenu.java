@@ -3,6 +3,7 @@ package se.quizmaniacs;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import se.quizmaniacs.Adapters.RoomAdapter;
+import se.quizmaniacs.Controller.Controller;
 
 public class LobbyMenu extends AppCompatActivity {
 
@@ -21,7 +23,9 @@ public class LobbyMenu extends AppCompatActivity {
     Button lobbyMenuBackBtn;
     Button lobbyMenuJoinBtn;
 
-    ArrayAdapter roomAdapter;
+    SwipeRefreshLayout lobbyMenuSwipeRefresh;
+
+    public ArrayAdapter roomAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,14 @@ public class LobbyMenu extends AppCompatActivity {
 
             }
         });
+        lobbyMenuSwipeRefresh = (SwipeRefreshLayout) findViewById(R.id.lobbyMenuSwipeRefresh);
+        lobbyMenuSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+               refreshRoomList();
+            }
+        });
+
 
         lobbyMenuBackBtn = (Button) findViewById(R.id.lobbyMenuBackBtn);
         lobbyMenuBackBtn.setOnClickListener(new View.OnClickListener() {
@@ -70,5 +82,10 @@ public class LobbyMenu extends AppCompatActivity {
 // Attach the adapter to a ListView
         ListView listView = (ListView) findViewById(R.id.lobbyMenuRoomListView);
         listView.setAdapter(roomAdapter);
+    }
+
+    public void refreshRoomList() {
+        Controller.getDataHandler().send(Controller.getCommandMaker().makeGetLobbyList());
+        lobbyMenuSwipeRefresh.setRefreshing(false);
     }
 }

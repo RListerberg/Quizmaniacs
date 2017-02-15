@@ -1,5 +1,6 @@
 package se.quizmaniacs.Commands;
 
+import android.provider.ContactsContract;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -29,13 +30,12 @@ public class CommandHandler {
         Command command = parser.parse(message);
         switch (command.type) {
             case UPDATELOBBYLIST:
-
                 System.out.println("RECEIVED: " + command.type);
                 Type roomArrayListToken = new TypeToken<ArrayList<SimpleRoom>>() {
-
                 }.getType();
                 System.out.println(command.data);
                 DataBank.rooms = new Gson().fromJson(command.data, roomArrayListToken);
+                DataBank.lobbyMenu.roomAdapter.notifyDataSetChanged();
                 break;
             case UPDATENICK:
                 System.out.println("RECEIVED: " + command.type);

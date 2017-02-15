@@ -1,7 +1,5 @@
 package se.quizmaniacs;
 
-import android.support.v7.app.AppCompatActivity;
-
 import java.util.ArrayList;
 
 import se.quizmaniacs.Jdo.SimpleRoom;
@@ -13,6 +11,6 @@ import se.quizmaniacs.Jdo.SimpleRoom;
 public class DataBank {
     public static ArrayList<SimpleRoom> rooms = new ArrayList<>();
     public static String nickname = "";
-    public static AppCompatActivity lobbyMenu;
+    public static LobbyMenu lobbyMenu;
 
 }
