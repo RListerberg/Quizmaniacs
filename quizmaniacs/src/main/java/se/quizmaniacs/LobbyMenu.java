@@ -59,21 +59,8 @@ public class LobbyMenu extends AppCompatActivity {
         lobbyMenuJoinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
-
                 Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerJoinCommand(selectedRoom));
                 System.out.println("PLAYER JOINED: " + selectedRoom.getName());
-            }
-        });
-        lobbyMenuSwipeRefresh = (SwipeRefreshLayout) findViewById(R.id.lobbyMenuSwipeRefresh);
-        lobbyMenuSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                Controller.getDataHandler().send(Controller.getCommandMaker().makeGetLobbyList());
-                refreshRoomList();
-                lobbyMenuSwipeRefresh.setRefreshing(false);
             }
         });
 
@@ -94,9 +81,16 @@ public class LobbyMenu extends AppCompatActivity {
             }
         });
 
+        lobbyMenuSwipeRefresh = (SwipeRefreshLayout) findViewById(R.id.lobbyMenuSwipeRefresh);
+        lobbyMenuSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Controller.getgit pDataHandler().send(Controller.getCommandMaker().makeGetLobbyList());
+                refreshRoomList();
+                lobbyMenuSwipeRefresh.setRefreshing(false);
+            }
+        });
     }
-
-
 
 
     public void populateRoomList() {
@@ -108,6 +102,12 @@ public class LobbyMenu extends AppCompatActivity {
     }
 
     public void refreshRoomList() {
-        roomAdapter.notifyDataSetChanged();
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                roomAdapter.notifyDataSetChanged();
+            }
+        });
+
     }
 }
