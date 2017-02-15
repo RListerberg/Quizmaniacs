@@ -85,7 +85,7 @@ public class LobbyMenu extends AppCompatActivity {
         lobbyMenuSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Controller.getgit pDataHandler().send(Controller.getCommandMaker().makeGetLobbyList());
+                Controller.getDataHandler().send(Controller.getCommandMaker().makeGetLobbyList());
                 refreshRoomList();
                 lobbyMenuSwipeRefresh.setRefreshing(false);
             }
