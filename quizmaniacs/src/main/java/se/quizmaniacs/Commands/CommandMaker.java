@@ -2,7 +2,7 @@ package se.quizmaniacs.Commands;
 
 import com.google.gson.Gson;
 
-import se.quizmaniacs.Jdo.Room;
+import se.quizmaniacs.Jdo.SimpleRoom;
 
 
 /**
@@ -36,7 +36,7 @@ public class CommandMaker {
         return stringCommand;
     }
 
-    public String makeCreateRoomCommand(Room room) {
+    public String makeCreateRoomCommand(SimpleRoom room) {
         String jsonData = gson.toJson(room);
         Command command = new Command(CommandType.CREATEROOM, jsonData);
         String stringCommand = gson.toJson(command);

@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import se.quizmaniacs.Controller.Controller;
-import se.quizmaniacs.Jdo.Room;
+import se.quizmaniacs.Jdo.SimpleRoom;
 
 public class CreateMenu extends AppCompatActivity {
 
@@ -55,10 +55,9 @@ public class CreateMenu extends AppCompatActivity {
     }
 
     private void createRoom() {
-
         int maxPlayers = Integer.parseInt(spinner.getSelectedItem().toString());
         String name = createMenuEditTxt.getText().toString();
-        Controller.getDataHandler().send(Controller.getCommandMaker().makeCreateRoomCommand(new Room(name, maxPlayers)));
+        Controller.getDataHandler().send(Controller.getCommandMaker().makeCreateRoomCommand(new SimpleRoom(name, maxPlayers)));
 
         finish();
         //Intent voteCategoryIntent = new Intent(CreateMenu.this, VoteCategory.class);

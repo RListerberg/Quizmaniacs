@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import se.quizmaniacs.Data.Parser;
 import se.quizmaniacs.DataBank;
-import se.quizmaniacs.Jdo.Room;
+import se.quizmaniacs.Jdo.SimpleRoom;
 import se.quizmaniacs.R;
 
 /**
@@ -30,7 +30,7 @@ public class CommandHandler {
         switch (command.type) {
             case UPDATELOBBYLIST:
                 System.out.println("RECIEVIED: " + command.type);
-                Type roomArrayListToken = new TypeToken<ArrayList<Room>>() {
+                Type roomArrayListToken = new TypeToken<ArrayList<SimpleRoom>>() {
                 }.getType();
                 System.out.println(command.data);
                 DataBank.rooms = new Gson().fromJson(command.data, roomArrayListToken);
