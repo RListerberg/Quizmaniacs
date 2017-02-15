@@ -71,7 +71,9 @@ public class LobbyMenu extends AppCompatActivity {
         lobbyMenuSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-               refreshRoomList();
+                Controller.getDataHandler().send(Controller.getCommandMaker().makeGetLobbyList());
+                refreshRoomList();
+                lobbyMenuSwipeRefresh.setRefreshing(false);
             }
         });
 
@@ -106,7 +108,6 @@ public class LobbyMenu extends AppCompatActivity {
     }
 
     public void refreshRoomList() {
-        Controller.getDataHandler().send(Controller.getCommandMaker().makeGetLobbyList());
-        lobbyMenuSwipeRefresh.setRefreshing(false);
+        roomAdapter.notifyDataSetChanged();
     }
 }
