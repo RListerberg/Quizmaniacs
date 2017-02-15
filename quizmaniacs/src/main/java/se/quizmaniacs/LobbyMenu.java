@@ -28,7 +28,7 @@ public class LobbyMenu extends AppCompatActivity {
     SwipeRefreshLayout lobbyMenuSwipeRefresh;
     SimpleRoom selectedRoom;
     ListView listViewRooms;
-    ArrayAdapter roomAdapter;
+    public ArrayAdapter roomAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
