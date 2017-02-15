@@ -5,12 +5,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import se.quizmaniacs.Adapters.RoomAdapter;
+import se.quizmaniacs.Controller.Controller;
+import se.quizmaniacs.Jdo.SimpleRoom;
 
 public class LobbyMenu extends AppCompatActivity {
 
@@ -21,6 +26,8 @@ public class LobbyMenu extends AppCompatActivity {
     Button lobbyMenuBackBtn;
     Button lobbyMenuJoinBtn;
 
+    SimpleRoom selectedRoom;
+    ListView listViewRooms;
     ArrayAdapter roomAdapter;
 
     @Override
@@ -32,6 +39,8 @@ public class LobbyMenu extends AppCompatActivity {
 
         lobbyMenuNickTxt = (TextView) findViewById(R.id.lobbyMenuNickTxt);
         lobbyMenuNickTxt.setText(nickname);
+
+        listViewRooms = (ListView) findViewById(R.id.lobbyMenuRoomListView);
 
 
         lobbyMenuCreateBtn = (Button) findViewById(R.id.lobbyMenuCreateBtn);
@@ -51,6 +60,11 @@ public class LobbyMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+
+
+                Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerJoinCommand(selectedRoom));
+                System.out.println("PLAYER JOINED: " + selectedRoom.getName());
             }
         });
 
@@ -61,7 +75,18 @@ public class LobbyMenu extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        listViewRooms.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectedRoom = (SimpleRoom) parent.getItemAtPosition(position);
+            }
+        });
+
     }
+
+
 
 
     public void populateRoomList() {

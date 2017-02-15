@@ -3,6 +3,7 @@ package se.quizmaniacs.Commands;
 import com.google.gson.Gson;
 
 import se.quizmaniacs.Jdo.SimpleRoom;
+import se.quizmaniacs.Jdo.SimpleUser;
 
 
 /**
@@ -53,6 +54,14 @@ public class CommandMaker {
 
     public String makePlayerLeaveCommand(){
         Command command = new Command(CommandType.PLAYERLEAVE, "");
+        String stringCommand = gson.toJson(command);
+        System.out.println("MADE: " + stringCommand);
+        return stringCommand;
+    }
+
+    public String makePlayerJoinCommand(SimpleRoom room){
+        String jsonData = gson.toJson(room);
+        Command command = new Command(CommandType.PLAYERJOIN, jsonData);
         String stringCommand = gson.toJson(command);
         System.out.println("MADE: " + stringCommand);
         return stringCommand;
