@@ -105,6 +105,7 @@ public class LobbyMenu extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                populateRoomList();
                 roomAdapter.notifyDataSetChanged();
             }
         });
