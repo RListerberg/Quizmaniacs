@@ -2,7 +2,6 @@ package se.quizmaniacs;
 
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -58,7 +57,8 @@ public class LobbyMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerJoinCommand(selectedRoom));
-
+                Controller.getDataHandler().send(Controller.getCommandMaker().makeGetRoom(selectedRoom.getId()));
+                startActivity(new Intent(LobbyMenu.this, RoomMenu.class));
                 System.out.println("PLAYER JOINED: " + selectedRoom.getName());
             }
         });
