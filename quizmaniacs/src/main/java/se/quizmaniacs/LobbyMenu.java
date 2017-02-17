@@ -2,6 +2,7 @@ package se.quizmaniacs;
 
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +20,6 @@ import se.quizmaniacs.Jdo.SimpleRoom;
 public class LobbyMenu extends AppCompatActivity {
 
     TextView lobbyMenuNickTxt;
-    String nickname;
 
     Button lobbyMenuCreateBtn;
     Button lobbyMenuBackBtn;
@@ -38,10 +38,8 @@ public class LobbyMenu extends AppCompatActivity {
         setContentView(R.layout.activity_lobby_menu);
 
         lobbyMenuNickTxt = (TextView) findViewById(R.id.lobbyMenuNickTxt);
-        lobbyMenuNickTxt.setText(nickname);
 
         listViewRooms = (ListView) findViewById(R.id.lobbyMenuRoomListView);
-
 
         lobbyMenuCreateBtn = (Button) findViewById(R.id.lobbyMenuCreateBtn);
 
@@ -60,6 +58,7 @@ public class LobbyMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerJoinCommand(selectedRoom));
+
                 System.out.println("PLAYER JOINED: " + selectedRoom.getName());
             }
         });
@@ -85,7 +84,6 @@ public class LobbyMenu extends AppCompatActivity {
         lobbyMenuSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Controller.getDataHandler().send(Controller.getCommandMaker().makeGetLobbyList());
                 refreshRoomList();
                 lobbyMenuSwipeRefresh.setRefreshing(false);
             }
@@ -102,12 +100,13 @@ public class LobbyMenu extends AppCompatActivity {
     }
 
     public void refreshRoomList() {
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                populateRoomList();
-                roomAdapter.notifyDataSetChanged();
+                Controller.getDataHandler().send(Controller.getCommandMaker().makeGetLobbyList());
             }
+
         });
 
     }

@@ -1,7 +1,10 @@
 package se.quizmaniacs;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -33,6 +36,7 @@ public class CreateMenu extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+
                 createRoom();
             }
         });
@@ -55,12 +59,40 @@ public class CreateMenu extends AppCompatActivity {
     }
 
     private void createRoom() {
-        int maxPlayers = Integer.parseInt(spinner.getSelectedItem().toString());
-        String name = createMenuEditTxt.getText().toString();
 
-        Controller.getDataHandler().send(Controller.getCommandMaker().makeCreateRoomCommand(new SimpleRoom(name, maxPlayers)));
 
-        finish();
+
+        System.out.println("Before CreateRoom command");
+        AsyncTask task = new AsyncTask() {
+
+            @Override
+            protected void onPreExecute() {
+                String name = createMenuEditTxt.getText().toString();
+                int maxPlayers = Integer.parseInt(spinner.getSelectedItem().toString());
+                Controller.getDataHandler().send(Controller.getCommandMaker().makeCreateRoomCommand(new SimpleRoom(name, maxPlayers)));
+                System.out.println("ONPREEXECUTE: ");
+            }
+
+            @Override
+            protected Object doInBackground(Object[] params) {
+                return "AsyncTask";
+            }
+
+            @Override
+            protected void onPostExecute(Object o) {
+                System.out.println("ONPOSTEXECUTE: ");
+
+                Intent myIntent = new Intent(CreateMenu.this, RoomMenu.class);
+                startActivity(myIntent);
+
+            }
+        };
+
+
+        System.out.println("After CreateRoom command");
+        task.execute();
+
+
 
     }
 

@@ -1,5 +1,6 @@
 package se.quizmaniacs.Commands;
 
+import android.util.Log;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -34,8 +35,17 @@ public class CommandHandler {
                 }.getType();
                 System.out.println(command.data);
                 DataBank.rooms = new Gson().fromJson(command.data, roomArrayListToken);
-                DataBank.lobbyMenu.refreshRoomList();
+
+                DataBank.lobbyMenu.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        DataBank.lobbyMenu.roomAdapter.notifyDataSetChanged();
+                    }
+                });
+
                 break;
+
             case UPDATENICK:
                 System.out.println("RECEIVED: " + command.type);
                 DataBank.nickname = command.data;
@@ -48,10 +58,24 @@ public class CommandHandler {
                 });
                 System.out.println("Nickname = " + command.data);
                 break;
+
+            case UPDATEROOM:
+                System.out.println("RECEIVED: " + command.type);
+                DataBank.roomName = command.data;
+                Log.d("UPDATEROOM: ", command.data);
+                System.out.println("UPDATEROOM: " + command.data);
+
+                DataBank.roomMenu.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        TextView roomName = (TextView) DataBank.roomMenu.findViewById(R.id.roomMenuTitleName);
+                        roomName.setText(DataBank.roomName);
+                    }
+                });
+                break;
+
             case PLAYERJOIN:
                 System.out.println("RECEIVED: " + command.type);
-
-
                 break;
             default:
                 System.out.println("Command Type Could Not Be Resolved");

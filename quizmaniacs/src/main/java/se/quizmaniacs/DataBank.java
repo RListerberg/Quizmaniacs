@@ -11,6 +11,8 @@ import se.quizmaniacs.Jdo.SimpleRoom;
 public class DataBank {
     public static ArrayList<SimpleRoom> rooms = new ArrayList<>();
     public static String nickname = "";
+    public static String roomName = "";
     public static LobbyMenu lobbyMenu;
+    public static RoomMenu roomMenu;
 
 }

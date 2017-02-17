@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import se.quizmaniacs.Controller.Controller;
 
@@ -15,10 +16,12 @@ public class RoomMenu extends AppCompatActivity {
     Button readyBut;
     RadioGroup radioButGroup;
     RadioButton radioButton;
+    TextView roomNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DataBank.roomMenu = this;
         setContentView(R.layout.activity_room_menu);
 
 
@@ -27,6 +30,10 @@ public class RoomMenu extends AppCompatActivity {
         readyBut = (Button) findViewById(R.id.roomMenuReadyBtn);
         radioButGroup = (RadioGroup) findViewById(R.id.roomMenuRadioGroup);
         radioButton = (RadioButton) findViewById(R.id.roomMenuRadioBut);
+        roomNameTextView = (TextView) findViewById(R.id.roomMenuTitleName);
+
+
+
 
         leaveBut.setOnClickListener(new View.OnClickListener() {
             @Override
