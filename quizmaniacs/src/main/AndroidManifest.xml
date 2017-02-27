@@ -18,9 +18,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".LobbyMenu" />
-        <activity android:name=".CreateMenu" />
+        <activity android:name=".CreateMenu" android:noHistory="true"/>
         <activity android:name=".VoteCategory" />
-        <activity android:name=".RoomMenu"></activity>
+        <activity android:name=".RoomMenu" />
     </application>
 
 </manifest>
