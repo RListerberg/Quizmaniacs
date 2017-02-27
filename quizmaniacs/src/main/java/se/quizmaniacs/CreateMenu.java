@@ -59,9 +59,6 @@ public class CreateMenu extends AppCompatActivity {
     }
 
     private void createRoom() {
-
-
-
         System.out.println("Before CreateRoom command");
         AsyncTask task = new AsyncTask() {
 
