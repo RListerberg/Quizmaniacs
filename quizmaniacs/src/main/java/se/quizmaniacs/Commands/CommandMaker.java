@@ -58,8 +58,9 @@ public class CommandMaker {
         return stringCommand;
     }
 
-    public String makePlayerLeaveCommand() {
-        Command command = new Command(CommandType.PLAYERLEAVE, "");
+    public String makePlayerLeaveCommand(SimpleRoom room) {
+        String jsonData = gson.toJson(room);
+        Command command = new Command(CommandType.PLAYERLEAVE, jsonData);
         String stringCommand = gson.toJson(command);
         System.out.println("MADE: " + stringCommand);
         return stringCommand;

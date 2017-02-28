@@ -64,10 +64,8 @@ public class CreateMenu extends AppCompatActivity {
 
             @Override
             protected void onPreExecute() {
-                String name = createMenuEditTxt.getText().toString();
-                int maxPlayers = Integer.parseInt(spinner.getSelectedItem().toString());
-                Controller.getDataHandler().send(Controller.getCommandMaker().makeCreateRoomCommand(new SimpleRoom(name, maxPlayers)));
-                System.out.println("ONPREEXECUTE: ");
+                Intent myIntent = new Intent(CreateMenu.this, RoomMenu.class);
+                startActivity(myIntent);
             }
 
             @Override
@@ -79,8 +77,10 @@ public class CreateMenu extends AppCompatActivity {
             protected void onPostExecute(Object o) {
                 System.out.println("ONPOSTEXECUTE: ");
 
-                Intent myIntent = new Intent(CreateMenu.this, RoomMenu.class);
-                startActivity(myIntent);
+                String name = createMenuEditTxt.getText().toString();
+                int maxPlayers = Integer.parseInt(spinner.getSelectedItem().toString());
+                Controller.getDataHandler().send(Controller.getCommandMaker().makeCreateRoomCommand(new SimpleRoom(name, maxPlayers)));
+                System.out.println("ONPREEXECUTE: ");
 
             }
         };

@@ -39,7 +39,7 @@ public class RoomMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerLeaveCommand());
+                Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerLeaveCommand(DataBank.rooms.get(0)));
                 finish();
             }
         });
