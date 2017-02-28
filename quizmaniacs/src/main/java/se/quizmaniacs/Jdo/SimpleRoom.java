@@ -1,5 +1,6 @@
 package se.quizmaniacs.Jdo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,6 +9,7 @@ import java.util.List;
 
 public class SimpleRoom {
     int id;
+    List<SimpleUser> users = new ArrayList<>();
     String name;
     int connectedPlayers;
     int maxPlayers;
@@ -57,5 +59,13 @@ public class SimpleRoom {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public List<SimpleUser> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<SimpleUser> users) {
+        this.users = users;
     }
 }
