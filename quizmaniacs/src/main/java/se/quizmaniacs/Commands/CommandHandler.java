@@ -46,6 +46,7 @@ public class CommandHandler {
                 break;
             case UPDATEROOM:
                 System.out.println("RECEIVED: " + command.type);
+                System.out.println("Nickname = " + command.data);
                 SimpleRoom room = gson.fromJson(command.data, SimpleRoom.class);
                 DataBank.roomName = room.getName();
                 refreshRoomName();
