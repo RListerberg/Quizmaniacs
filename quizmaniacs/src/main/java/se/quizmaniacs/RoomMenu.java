@@ -2,6 +2,7 @@ package se.quizmaniacs;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -38,8 +39,13 @@ public class RoomMenu extends AppCompatActivity {
         leaveBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
 
-                Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerLeaveCommand(DataBank.rooms.get(0)));
+                    Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerLeaveCommand(DataBank.rooms.get(0)));
+
+                }catch (IndexOutOfBoundsException e){
+                    Log.e("Couldn't get any rooms", e.getMessage(), e);
+                }
                 finish();
             }
         });
