@@ -8,8 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -20,8 +18,6 @@ public class RoomMenu extends AppCompatActivity {
 
     Button leaveBut;
     ToggleButton readyToggle;
-    RadioGroup radioButGroup;
-    RadioButton radioButton;
     TextView roomNameTextView;
 
     ListView roomMenuPlayerListView;
@@ -38,8 +34,6 @@ public class RoomMenu extends AppCompatActivity {
 
         leaveBut = (Button) findViewById(R.id.roomMenuLeaveBtn);
         readyToggle = (ToggleButton) findViewById(R.id.roomMenuReadyToggle);
-        radioButGroup = (RadioGroup) findViewById(R.id.roomMenuRadioGroup);
-        radioButton = (RadioButton) findViewById(R.id.roomMenuRadioBut);
         roomNameTextView = (TextView) findViewById(R.id.roomMenuTitleName);
         roomMenuPlayerListView = (ListView) findViewById(R.id.roomMenuPlayerListView);
 

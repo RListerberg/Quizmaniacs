@@ -96,9 +96,15 @@ public class CommandHandler {
     }
 
     public void refreshRoomPlayerList() {
-        DataBank.roomMenu.playerAdapter.clear();
-        DataBank.roomMenu.playerAdapter.addAll(DataBank.players);
-        DataBank.roomMenu.playerAdapter.notifyDataSetChanged();
+        DataBank.roomMenu.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                DataBank.roomMenu.playerAdapter.clear();
+                DataBank.roomMenu.playerAdapter.addAll(DataBank.players);
+                DataBank.roomMenu.playerAdapter.notifyDataSetChanged();
+            }
+        });
+
     }
 
     public void refreshRoomName() {
