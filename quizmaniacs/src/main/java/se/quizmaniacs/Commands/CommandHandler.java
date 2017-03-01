@@ -10,7 +10,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import se.quizmaniacs.Data.Parser;
-import se.quizmaniacs.DataBank;
+import se.quizmaniacs.Data.DataBank;
 import se.quizmaniacs.Jdo.SimpleRoom;
 import se.quizmaniacs.Jdo.SimpleUser;
 import se.quizmaniacs.R;
