@@ -3,8 +3,10 @@ package se.quizmaniacs;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -85,9 +87,23 @@ public class LobbyMenu extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 refreshRoomList();
-                lobbyMenuSwipeRefresh.setRefreshing(false);
+                new Handler().postDelayed(new Runnable(
+                ){
+                    @Override
+                    public void run() {
+                        lobbyMenuSwipeRefresh.setRefreshing(false);
+                    }
+                }, 1000);
             }
         });
+
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        lobbyMenuNickTxt.setText(DataBank.nickname);
     }
 
 
