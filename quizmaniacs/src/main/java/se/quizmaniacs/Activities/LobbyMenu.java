@@ -1,4 +1,4 @@
-package se.quizmaniacs;
+package se.quizmaniacs.Activities;
 
 
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,7 +15,9 @@ import android.widget.TextView;
 
 import se.quizmaniacs.Adapters.RoomAdapter;
 import se.quizmaniacs.Controller.Controller;
+import se.quizmaniacs.Data.DataBank;
 import se.quizmaniacs.Jdo.SimpleRoom;
+import se.quizmaniacs.R;
 
 public class LobbyMenu extends AppCompatActivity {
 

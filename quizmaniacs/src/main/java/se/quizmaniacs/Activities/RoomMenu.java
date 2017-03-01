@@ -1,4 +1,4 @@
-package se.quizmaniacs;
+package se.quizmaniacs.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import se.quizmaniacs.Controller.Controller;
+import se.quizmaniacs.Data.DataBank;
+import se.quizmaniacs.R;
 
 public class RoomMenu extends AppCompatActivity {
 
@@ -40,13 +42,20 @@ public class RoomMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+                    for (int i = 0; i <DataBank.rooms.size() ; i++) {
 
-                    Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerLeaveCommand(DataBank.rooms.get(0)));
+                        for (int j = 0; j < DataBank.rooms.get(i).getUsers().size() ; j++) {
 
+                                if(DataBank.rooms.get(i).getUsers().get(j).getPortNr() == DataBank.portNr){
+                                    Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerLeaveCommand(DataBank.rooms.get(i)));
+                                    finish();
+                                    break;
+                                }
+                        }
+                    }
                 }catch (IndexOutOfBoundsException e){
                     Log.e("Couldn't get any rooms", e.getMessage(), e);
                 }
-                finish();
             }
         });
 

@@ -1,10 +1,9 @@
-package se.quizmaniacs;
+package se.quizmaniacs.Activities;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,6 +12,7 @@ import android.widget.Spinner;
 
 import se.quizmaniacs.Controller.Controller;
 import se.quizmaniacs.Jdo.SimpleRoom;
+import se.quizmaniacs.R;
 
 public class CreateMenu extends AppCompatActivity {
 
@@ -76,7 +76,6 @@ public class CreateMenu extends AppCompatActivity {
             @Override
             protected void onPostExecute(Object o) {
                 System.out.println("ONPOSTEXECUTE: ");
-
                 String name = createMenuEditTxt.getText().toString();
                 int maxPlayers = Integer.parseInt(spinner.getSelectedItem().toString());
                 Controller.getDataHandler().send(Controller.getCommandMaker().makeCreateRoomCommand(new SimpleRoom(name, maxPlayers)));

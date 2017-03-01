@@ -1,7 +1,9 @@
-package se.quizmaniacs;
+package se.quizmaniacs.Data;
 
 import java.util.ArrayList;
 
+import se.quizmaniacs.Activities.LobbyMenu;
+import se.quizmaniacs.Activities.RoomMenu;
 import se.quizmaniacs.Jdo.SimpleRoom;
 
 /**
@@ -14,5 +16,6 @@ public class DataBank {
     public static String roomName = "";
     public static LobbyMenu lobbyMenu;
     public static RoomMenu roomMenu;
+    public static int portNr;
 
 }

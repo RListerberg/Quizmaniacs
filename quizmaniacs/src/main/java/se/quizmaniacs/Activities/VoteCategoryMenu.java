@@ -1,4 +1,4 @@
-package se.quizmaniacs;
+package se.quizmaniacs.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,8 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import se.quizmaniacs.Controller.Controller;
+import se.quizmaniacs.R;
 
-public class VoteCategory extends AppCompatActivity {
+public class VoteCategoryMenu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

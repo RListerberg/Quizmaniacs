@@ -3,6 +3,8 @@ package se.quizmaniacs.Connectivity;
 import java.io.IOException;
 import java.net.Socket;
 
+import se.quizmaniacs.Data.DataBank;
+
 /**
  * Created by LeoAsp on 2017-01-25.
  */
@@ -28,6 +30,7 @@ public class ConnectionHandler implements Runnable {
             try {
                 socket = new Socket(host, port);
                 System.out.println("Connected to: " + host + ":" + port);
+                DataBank.portNr = socket.getLocalPort();
                 connected = true;
             } catch (IOException e) {
                 e.printStackTrace();

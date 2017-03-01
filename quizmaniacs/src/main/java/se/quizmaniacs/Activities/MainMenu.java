@@ -1,4 +1,4 @@
-package se.quizmaniacs;
+package se.quizmaniacs.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import android.widget.EditText;
 import java.io.IOException;
 
 import se.quizmaniacs.Controller.Controller;
+import se.quizmaniacs.R;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -20,7 +21,7 @@ public class MainMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        new Thread(Controller.getConnectionHandler()).start();
+//        new Thread(Controller.getConnectionHandler()).start();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
@@ -32,17 +33,17 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String nick = mainMenuNickField.getText().toString();
-
-                try {
-                    Controller.getDataHandler().startThreads(Controller.getConnectionHandler().getSocket());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                Controller.getDataHandler().send(Controller.getCommandMaker().makeSetNickCommand(nick));
-                Controller.getDataHandler().send(Controller.getCommandMaker().makeGetLobbyList());
-                startActivity(new Intent(MainMenu.this, LobbyMenu.class));
+//                String nick = mainMenuNickField.getText().toString();
+//
+//                try {
+//                    Controller.getDataHandler().startThreads(Controller.getConnectionHandler().getSocket());
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                Controller.getDataHandler().send(Controller.getCommandMaker().makeSetNickCommand(nick));
+//                Controller.getDataHandler().send(Controller.getCommandMaker().makeGetLobbyList());
+                startActivity(new Intent(MainMenu.this, QuestionMenu.class));
             }
         });
 
