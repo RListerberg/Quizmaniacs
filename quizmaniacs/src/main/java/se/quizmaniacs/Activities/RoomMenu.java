@@ -31,6 +31,7 @@ public class RoomMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         DataBank.roomMenu = this;
+
         setContentView(R.layout.activity_room_menu);
 
 
