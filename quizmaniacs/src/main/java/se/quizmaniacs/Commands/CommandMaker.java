@@ -37,7 +37,7 @@ public class CommandMaker {
     }
 
     public String makeGetRoom(int roomId) {
-        Command command = new Command(CommandType.GETROOM, roomId+"");
+        Command command = new Command(CommandType.GETROOM, roomId + "");
         String stringCommand = gson.toJson(command);
         System.out.println("MADE: " + stringCommand);
         return stringCommand;
@@ -53,6 +53,13 @@ public class CommandMaker {
 
     public String makePlayerReadyCommand() {
         Command command = new Command(CommandType.PLAYERREADY, "");
+        String stringCommand = gson.toJson(command);
+        System.out.println("MADE: " + stringCommand);
+        return stringCommand;
+    }
+
+    public String makePlayerNotReadyCommand() {
+        Command command = new Command(CommandType.PLAYERNOTREADY, "");
         String stringCommand = gson.toJson(command);
         System.out.println("MADE: " + stringCommand);
         return stringCommand;
