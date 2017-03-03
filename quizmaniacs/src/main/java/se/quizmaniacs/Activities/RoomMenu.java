@@ -1,14 +1,18 @@
 package se.quizmaniacs.Activities;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import se.quizmaniacs.Adapters.PlayerAdapdter;
@@ -45,20 +49,7 @@ public class RoomMenu extends AppCompatActivity {
         leaveBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    for (int i = 0; i < DataBank.rooms.size(); i++) {
-
-                        for (int j = 0; j < DataBank.rooms.get(i).getUsers().size(); j++) {
-                            if (DataBank.rooms.get(i).getUsers().get(j).getPortNr() == DataBank.portNr) {
-                                Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerLeaveCommand(DataBank.rooms.get(i)));
-                                finish();
-                                break;
-                            }
-                        }
-                    }
-                } catch (IndexOutOfBoundsException e) {
-                    Log.e("Couldn't get any rooms", e.getMessage(), e);
-                }
+                showExitConfirmDialog();
             }
         });
 
@@ -76,11 +67,52 @@ public class RoomMenu extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            showExitConfirmDialog();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
     public void populatePlayerList() {
         // Create the adapter to convert the array to views
         playerAdapter = new PlayerAdapdter(this, DataBank.players);
         // Attach the adapter to a ListView
         roomMenuPlayerListView.setAdapter(playerAdapter);
+    }
+
+    public void showExitConfirmDialog() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Leave?"); // set title
+        dialog.setMessage("Are you sure you want to leave?");
+        dialog.setPositiveButton("Leave",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
+                            for (int i = 0; i < DataBank.rooms.size(); i++) {
+                                for (int j = 0; j < DataBank.rooms.get(i).getUsers().size(); j++) {
+                                    if (DataBank.rooms.get(i).getUsers().get(j).getPortNr() == DataBank.portNr) {
+                                        Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerLeaveCommand(DataBank.rooms.get(i)));
+                                        finish();
+                                        Toast.makeText(getBaseContext(), "You have left the room", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+                        } catch (IndexOutOfBoundsException e) {
+                            Log.e("Couldn't get any rooms", e.getMessage(), e);
+                        }
+                    }
+                });
+        dialog.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.i("inRoom", "user choose to stay");
+                    }
+                });
+        dialog.create().show();
     }
 
 

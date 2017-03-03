@@ -6,7 +6,9 @@
     <RadioButton
         android:id="@+id/playerReady"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColorLink="@android:color/holo_green_light"
+        android:clickable="false" />
 
     <TextView
         android:id="@+id/playerName"
