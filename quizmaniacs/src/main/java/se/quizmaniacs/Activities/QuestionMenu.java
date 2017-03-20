@@ -21,6 +21,7 @@ import se.quizmaniacs.R;
 
 public class QuestionMenu extends AppCompatActivity {
 
+    public static float startSpin = 0f;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +31,6 @@ public class QuestionMenu extends AppCompatActivity {
 
         final PieChart pieChart = (PieChart) findViewById(R.id.questionMenuPieChart);
         Legend pieChartLegend = pieChart.getLegend();
-
-        final float startSpin = 0f;
-        final float endSpin = 360f;
-        final float[] newSpin = {0f};
 
 
         float purpleSixth = 1 / 6f;
@@ -72,27 +69,40 @@ public class QuestionMenu extends AppCompatActivity {
 
         Button spinBut = (Button) findViewById(R.id.spinBut);
         spinBut.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
+                System.out.println("StartSpin before minus: " + startSpin);
+
+                if (startSpin >= 360f) {
+                    startSpin = startSpin - 360f;
+                }
+
                 int randomPie = pieData.getDataSet().getEntryIndex(pieSizes.get(new Random().nextInt(5)));
 
-                final float changeSpin = (60 * randomPie);
+                float changeSpin = (60f * randomPie);
+                float endSpin = 360f;
 
-//                System.out.println("ChangeSpin: " + changeSpin);
-//
-//                System.out.println("NewSpin before if statement: " + newSpin[0]);
-
-                pieChart.spin(3000, startSpin + newSpin[0], endSpin + changeSpin, Easing.EasingOption.EaseOutBack);
-
-                newSpin[0] = changeSpin;
+                System.out.println("StartSpin after minus:  " + startSpin);
 
 
-                System.out.println("Pielabels: " + pieSizes.get(Math.round(newSpin[0] + changeSpin)/60).getLabel());
+                pieChart.spin(3000, startSpin, changeSpin, Easing.EasingOption.EaseOutBack);
 
+
+                int currentPiece = Math.round(changeSpin / 60f);
+
+                System.out.println("Math.round: " + currentPiece);
+
+                System.out.println("CurrentPieceLBL: " + pieSizes.get(currentPiece).getLabel());
+
+//              startSpin = changeSpin;
+
+                System.out.println("StartSpin after plus:  " + startSpin);
 
             }
         });
+
 
     }
 
