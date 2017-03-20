@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import se.quizmaniacs.Data.Parser;
 import se.quizmaniacs.Data.DataBank;
 import se.quizmaniacs.Jdo.SimpleRoom;
+import se.quizmaniacs.Jdo.SimpleUser;
 import se.quizmaniacs.R;
 
 /**
@@ -38,6 +39,13 @@ public class CommandHandler {
                 DataBank.rooms = gson.fromJson(command.data, roomArrayListToken);
                 refreshLobbyList();
                 break;
+            case UPDATEROOMPLAYERLIST:
+                System.out.println("RECEIVED: " + command.type);
+                Type playerArrayListToken = new TypeToken<ArrayList<SimpleUser>>() {
+                }.getType();
+                System.out.println(command.data);
+                DataBank.players = gson.fromJson(command.data, playerArrayListToken);
+                refreshRoomPlayerList();
             case UPDATENICK:
                 System.out.println("RECEIVED: " + command.type);
                 DataBank.nickname = command.data;
@@ -85,6 +93,18 @@ public class CommandHandler {
                 DataBank.lobbyMenu.roomAdapter.notifyDataSetChanged();
             }
         });
+    }
+
+    public void refreshRoomPlayerList() {
+        DataBank.roomMenu.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                DataBank.roomMenu.playerAdapter.clear();
+                DataBank.roomMenu.playerAdapter.addAll(DataBank.players);
+                DataBank.roomMenu.playerAdapter.notifyDataSetChanged();
+            }
+        });
+
     }
 
     public void refreshRoomName() {

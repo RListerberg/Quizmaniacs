@@ -89,7 +89,7 @@ public class LobbyMenu extends AppCompatActivity {
             public void onRefresh() {
                 refreshRoomList();
                 new Handler().postDelayed(new Runnable(
-                ){
+                ) {
                     @Override
                     public void run() {
                         lobbyMenuSwipeRefresh.setRefreshing(false);
@@ -101,23 +101,20 @@ public class LobbyMenu extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
-
         lobbyMenuNickTxt.setText(DataBank.nickname);
     }
 
 
     public void populateRoomList() {
-// Create the adapter to convert the array to views
+        // Create the adapter to convert the array to views
         roomAdapter = new RoomAdapter(this, DataBank.rooms);
-// Attach the adapter to a ListView
-        ListView listView = (ListView) findViewById(R.id.lobbyMenuRoomListView);
-        listView.setAdapter(roomAdapter);
+        // Attach the adapter to a ListView
+        listViewRooms.setAdapter(roomAdapter);
     }
 
     public void refreshRoomList() {
-
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -125,6 +122,5 @@ public class LobbyMenu extends AppCompatActivity {
             }
 
         });
-
     }
 }
