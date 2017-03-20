@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import se.quizmaniacs.Jdo.SimpleRoom;
 import se.quizmaniacs.Jdo.SimpleUser;
 import se.quizmaniacs.R;
 
@@ -29,7 +28,7 @@ public class PlayerAdapdter extends ArrayAdapter {
         SimpleUser simpleUser = (SimpleUser) getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_player, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_player_in_room, parent, false);
         }
 
         RadioButton playerReady = (RadioButton) convertView.findViewById(R.id.playerReady);
