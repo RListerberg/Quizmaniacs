@@ -44,6 +44,7 @@ public class MainMenu extends AppCompatActivity {
                 Controller.getDataHandler().send(Controller.getCommandMaker().makeSetNickCommand(nick));
                 Controller.getDataHandler().send(Controller.getCommandMaker().makeGetLobbyList());
                 startActivity(new Intent(MainMenu.this, LobbyMenu.class));
+                
             }
         });
 
