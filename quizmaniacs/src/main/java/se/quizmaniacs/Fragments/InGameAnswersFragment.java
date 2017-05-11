@@ -12,10 +12,10 @@ import se.quizmaniacs.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class InGameAnswers extends Fragment {
+public class InGameAnswersFragment extends Fragment {
 
 
-    public InGameAnswers() {
+    public InGameAnswersFragment() {
         // Required empty public constructor
     }
 

@@ -81,4 +81,11 @@ public class CommandMaker {
         return stringCommand;
     }
 
+    public String makePlayerSendMessageCommand(String message) {
+        Command command = new Command(CommandType.PLAYERSENDMESSAGE, message);
+        String stringCommand = gson.toJson(command);
+        System.out.println("MADE: " + stringCommand);
+        return stringCommand;
+    }
+
 }

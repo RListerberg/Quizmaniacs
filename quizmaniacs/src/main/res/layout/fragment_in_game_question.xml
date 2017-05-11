@@ -2,12 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context="se.quizmaniacs.Fragments.InGameQuestionFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="Hejsan, detta är en fråga?"
+        android:id="@+id/inGameQuestionTxt"
+        android:textAlignment="center"
+        android:gravity="center_vertical"
+        android:background="@android:color/darker_gray"
+        android:alpha="0.9" />
 
 </FrameLayout>

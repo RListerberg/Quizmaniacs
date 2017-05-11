@@ -68,6 +68,9 @@ public class CommandHandler {
             case PLAYERJOIN:
                 System.out.println("RECEIVED: " + command.type);
                 break;
+            case SENDMESSAGE:
+                System.out.println("RECEIVED: " + command.type);
+                addMessageToPlayerChat(command.data);
             default:
                 System.out.println("Command Type Could Not Be Resolved");
                 break;
@@ -115,6 +118,9 @@ public class CommandHandler {
                 roomName.setText(DataBank.roomName);
             }
         });
+    }
+
+    public void addMessageToPlayerChat(String message){
     }
 
 
