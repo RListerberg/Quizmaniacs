@@ -8,4 +8,5 @@
     <string name="ready">Ready</string>
     <string name="nickName">NickName</string>
     <string name="loadingPlayer">waiting for players…</string>
+    <string name="title_activity_chat_room">ChatRoom</string>
 </resources>

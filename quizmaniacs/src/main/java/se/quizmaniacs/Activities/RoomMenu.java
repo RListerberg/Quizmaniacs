@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import se.quizmaniacs.Adapters.PlayerAdapdter;
+import se.quizmaniacs.Adapters.PlayerAdapter;
 import se.quizmaniacs.Controller.Controller;
 import se.quizmaniacs.Data.DataBank;
 import se.quizmaniacs.R;
@@ -77,7 +77,7 @@ public class RoomMenu extends AppCompatActivity {
 
     public void populatePlayerList() {
         // Create the adapter to convert the array to views
-        playerAdapter = new PlayerAdapdter(this, DataBank.players);
+        playerAdapter = new PlayerAdapter(this, DataBank.players);
         // Attach the adapter to a ListView
         roomMenuPlayerListView.setAdapter(playerAdapter);
     }

@@ -23,7 +23,8 @@
             android:noHistory="true" />
         <activity android:name=".Activities.VoteCategoryMenu" />
         <activity android:name=".Activities.RoomMenu" />
-        <activity android:name=".Activities.QuestionMenu"></activity>
+        <activity android:name=".Activities.GameInProgressMenu" />
+        <activity android:name=".Activities.ChatRoom"></activity>
     </application>
 
 </manifest>
