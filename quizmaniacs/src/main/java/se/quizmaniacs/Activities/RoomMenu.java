@@ -10,12 +10,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import se.quizmaniacs.Adapters.PlayerAdapdter;
+import se.quizmaniacs.Adapters.PlayerAdapter;
 import se.quizmaniacs.Controller.Controller;
 import se.quizmaniacs.Data.DataBank;
 import se.quizmaniacs.R;
@@ -23,8 +24,10 @@ import se.quizmaniacs.R;
 public class RoomMenu extends AppCompatActivity {
 
     Button leaveBut;
+    Button sendBtn;
     ToggleButton readyToggle;
     TextView roomNameTextView;
+    EditText roomMenuEditText;
 
     ListView roomMenuPlayerListView;
 
@@ -40,9 +43,11 @@ public class RoomMenu extends AppCompatActivity {
 
 
         leaveBut = (Button) findViewById(R.id.roomMenuLeaveBtn);
+        sendBtn = (Button) findViewById(R.id.roomMenuSendBtn);
         readyToggle = (ToggleButton) findViewById(R.id.roomMenuReadyToggle);
         roomNameTextView = (TextView) findViewById(R.id.roomMenuTitleName);
         roomMenuPlayerListView = (ListView) findViewById(R.id.roomMenuPlayerListView);
+        roomMenuEditText = (EditText) findViewById(R.id.roomMenuEditText);
         populatePlayerList();
 
 
@@ -64,8 +69,15 @@ public class RoomMenu extends AppCompatActivity {
             }
         });
 
-
+        sendBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String message = roomMenuEditText.getText().toString();
+                Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerSendMessageCommand(message));
+            }
+        });
     }
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -77,9 +89,13 @@ public class RoomMenu extends AppCompatActivity {
 
     public void populatePlayerList() {
         // Create the adapter to convert the array to views
-        playerAdapter = new PlayerAdapdter(this, DataBank.players);
+        playerAdapter = new PlayerAdapter(this, DataBank.players);
         // Attach the adapter to a ListView
         roomMenuPlayerListView.setAdapter(playerAdapter);
+    }
+
+    public void addMessageToView(String message){
+        roomMenuEditText.append(message);
     }
 
     public void showExitConfirmDialog() {

@@ -9,8 +9,8 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-import se.quizmaniacs.Data.Parser;
 import se.quizmaniacs.Data.DataBank;
+import se.quizmaniacs.Data.Parser;
 import se.quizmaniacs.Jdo.SimpleRoom;
 import se.quizmaniacs.Jdo.SimpleUser;
 import se.quizmaniacs.R;
@@ -120,7 +120,14 @@ public class CommandHandler {
         });
     }
 
-    public void addMessageToPlayerChat(String message){
+    public void addMessageToPlayerChat(final String message) {
+        DataBank.roomMenu.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                DataBank.roomMenu.addMessageToView(message);
+            }
+        });
+
     }
 
 

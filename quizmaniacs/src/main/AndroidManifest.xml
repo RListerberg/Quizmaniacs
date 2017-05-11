@@ -25,6 +25,8 @@
         <activity android:name=".Activities.RoomMenu" />
         <activity android:name=".Activities.QuestionMenu" />
         <activity android:name=".Activities.GameMenu" />
+        <activity android:name=".Activities.GameInProgressMenu" />
+        <activity android:name=".Activities.ChatRoom"></activity>
     </application>
 
 </manifest>

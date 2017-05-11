@@ -17,8 +17,8 @@ import se.quizmaniacs.R;
  * Created by LeoAsp on 2017-03-01.
  */
 
-public class PlayerAdapdter extends ArrayAdapter {
-    public PlayerAdapdter(Context context, ArrayList<SimpleUser> users) {
+public class PlayerAdapter extends ArrayAdapter {
+    public PlayerAdapter(Context context, ArrayList<SimpleUser> users) {
         super(context, 0, users);
     }
 

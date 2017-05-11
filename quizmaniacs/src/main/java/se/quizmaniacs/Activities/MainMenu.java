@@ -21,7 +21,7 @@ public class MainMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        new Thread(Controller.getConnectionHandler()).start();
+       // new Thread(Controller.getConnectionHandler()).start();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
@@ -35,15 +35,15 @@ public class MainMenu extends AppCompatActivity {
 
                 String nick = mainMenuNickField.getText().toString();
 
-                try {
-                    Controller.getDataHandler().startThreads(Controller.getConnectionHandler().getSocket());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                //try {
+                  //  Controller.getDataHandler().startThreads(Controller.getConnectionHandler().getSocket());
+               // } catch (IOException e) {
+                 //   e.printStackTrace();
+                //}
 
-                Controller.getDataHandler().send(Controller.getCommandMaker().makeSetNickCommand(nick));
-                Controller.getDataHandler().send(Controller.getCommandMaker().makeGetLobbyList());
-                startActivity(new Intent(MainMenu.this, LobbyMenu.class));
+               // Controller.getDataHandler().send(Controller.getCommandMaker().makeSetNickCommand(nick));
+                //Controller.getDataHandler().send(Controller.getCommandMaker().makeGetLobbyList());
+                startActivity(new Intent(MainMenu.this, ChatRoom.class));
                 
             }
         });

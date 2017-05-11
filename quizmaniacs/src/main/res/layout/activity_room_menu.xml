@@ -10,19 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="se.quizmaniacs.Activities.RoomMenu">
 
-    <ToggleButton
-        android:text="ToggleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/roomMenuReadyToggle"
-        android:textOff="@string/ready"
-        android:textOn="@string/ready"
-        android:minWidth="100dp"
-        android:minHeight="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <Button
         android:text="@string/leave"
         android:layout_width="wrap_content"
@@ -31,21 +18,32 @@
         android:minHeight="50dp"
         android:minWidth="100dp"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/roomMenuSendBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:minHeight="50dp"
+        android:minWidth="100dp"
+        android:text="@string/send" />
 
     <ListView
+        android:id="@+id/roomMenuPlayerListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/roomMenuPlayerListView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
+        android:dividerHeight="4dp"
+        android:minHeight="63dp"
         android:paddingBottom="60dp"
         android:paddingTop="30dp"
-        android:dividerHeight="4dp"
-        android:minHeight="63dp" />
+        android:layout_toEndOf="@+id/roomMenuLeaveBtn"
+        android:layout_alignLeft="@+id/roomMenuSendBtn"
+        android:layout_alignStart="@+id/roomMenuSendBtn"
+        android:layout_above="@+id/roomMenuEditText" />
 
     <TextView
         android:text="@string/room_name"
@@ -57,6 +55,30 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/roomMenuChatArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/roomMenuTitleName"
+        android:layout_toLeftOf="@+id/roomMenuSendBtn"
+        android:layout_toStartOf="@+id/roomMenuSendBtn"
+        android:layout_above="@+id/roomMenuEditText" />
+
+    <EditText
+        android:id="@+id/roomMenuEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/roomMenuLeaveBtn"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:ems="10"
+        android:hint="Message"
+        android:inputType="textPersonName" />
 
 
 </RelativeLayout>
