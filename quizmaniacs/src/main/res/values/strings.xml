@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Quizmaniacs</string>
+    <string name="app_name">Chat App</string>
     <string name="max_players">Max Players:</string>
     <string name="create">Create</string>
     <string name="room_name">Room Name:</string>
@@ -11,4 +11,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_chat_room">ChatRoom</string>
     <string name="send">send</string>
+    <string name="enter">enter</string>
 </resources>

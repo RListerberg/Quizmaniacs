@@ -44,7 +44,7 @@ public class RoomMenu extends AppCompatActivity {
 
         leaveBut = (Button) findViewById(R.id.roomMenuLeaveBtn);
         sendBtn = (Button) findViewById(R.id.roomMenuSendBtn);
-        readyToggle = (ToggleButton) findViewById(R.id.roomMenuReadyToggle);
+        //readyToggle = (ToggleButton) findViewById(R.id.roomMenuReadyToggle);
         roomNameTextView = (TextView) findViewById(R.id.roomMenuTitleName);
         roomMenuPlayerListView = (ListView) findViewById(R.id.roomMenuPlayerListView);
         roomMenuEditText = (EditText) findViewById(R.id.roomMenuEditText);

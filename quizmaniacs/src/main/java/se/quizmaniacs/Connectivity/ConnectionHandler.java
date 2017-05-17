@@ -1,5 +1,7 @@
 package se.quizmaniacs.Connectivity;
 
+import android.util.Log;
+
 import java.io.IOException;
 import java.net.Socket;
 
@@ -12,7 +14,7 @@ import se.quizmaniacs.Data.DataBank;
 public class ConnectionHandler implements Runnable {
     private Socket socket;
     boolean connected = false;
-    private String host = "172.18.4.102";
+    private String host = "192.168.0.1";
     private int port = 8008;
 
 
@@ -29,12 +31,18 @@ public class ConnectionHandler implements Runnable {
         while (!connected) {
             try {
                 socket = new Socket(host, port);
-                System.out.println("Connected to: " + host + ":" + port);
+                Log.i("SUCCESS", "Connected to: " + host + ":" + port);
                 DataBank.portNr = socket.getLocalPort();
                 connected = true;
             } catch (IOException e) {
                 e.printStackTrace();
+                Log.i("FAILED", host);
             }
         }
+    }
+
+    public void setHost(String host) {
+        Log.i("Info", "Host set to" + host);
+        this.host = host;
     }
 }

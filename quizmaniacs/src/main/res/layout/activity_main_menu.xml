@@ -9,16 +9,16 @@
     tools:context="se.quizmaniacs.Activities.MainMenu">
 
     <TextView
-        android:text="Quizmaniacs"
+        android:id="@+id/mainMenuLogoTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="61dp"
-        android:id="@+id/mainMenuLogoTxt"
-        android:textSize="50sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="61dp"
         android:fontFamily="sans-serif"
-        android:textAllCaps="false" />
+        android:text="@string/app_name"
+        android:textAllCaps="false"
+        android:textSize="50sp" />
 
     <TextView
         android:text="Nickname:"
@@ -44,13 +44,31 @@
         android:layout_alignStart="@+id/mainMenuLogoTxt" />
 
     <Button
-        android:text="Play"
+        android:id="@+id/mainMenuPlayBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/mainMenuPlayBtn"
         android:layout_below="@+id/mainMenuNickField"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:minHeight="100dp"
-        android:minWidth="300dp" />
+        android:minWidth="300dp"
+        android:text="@string/enter" />
+
+    <EditText
+        android:id="@+id/mainMenuIpField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="IP"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/mainMenuPlayBtn"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/mainMenuConnectBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mainMenuIpField"
+        android:layout_centerHorizontal="true"
+        android:text="Connect" />
 </RelativeLayout>
