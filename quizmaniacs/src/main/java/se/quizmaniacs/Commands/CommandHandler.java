@@ -78,13 +78,17 @@ public class CommandHandler {
     }
 
     public void refreshNickName() {
-        DataBank.lobbyMenu.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                TextView lobbymenuNickTxt = (TextView) DataBank.lobbyMenu.findViewById(R.id.lobbyMenuNickTxt);
-                lobbymenuNickTxt.setText(DataBank.nickname);
-            }
-        });
+        if (DataBank.lobbyMenu != null) {
+            DataBank.lobbyMenu.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    TextView lobbymenuNickTxt = (TextView) DataBank.lobbyMenu.findViewById(R.id.lobbyMenuNickTxt);
+                    lobbymenuNickTxt.setText(DataBank.nickname);
+                }
+            });
+        } else {
+            System.out.println("lobbyMenu is null");
+        }
     }
 
     public void refreshLobbyList() {
@@ -111,13 +115,17 @@ public class CommandHandler {
     }
 
     public void refreshRoomName() {
-        DataBank.roomMenu.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                TextView roomName = (TextView) DataBank.roomMenu.findViewById(R.id.roomMenuTitleName);
-                roomName.setText(DataBank.roomName);
-            }
-        });
+        try {
+            DataBank.roomMenu.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    TextView roomName = (TextView) DataBank.roomMenu.findViewById(R.id.roomMenuTitleName);
+                    roomName.setText(DataBank.roomName);
+                }
+            });
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
     public void addMessageToPlayerChat(final String message) {

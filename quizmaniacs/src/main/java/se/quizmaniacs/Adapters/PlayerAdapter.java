@@ -31,10 +31,10 @@ public class PlayerAdapter extends ArrayAdapter {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_player_in_room, parent, false);
         }
 
-        RadioButton playerReady = (RadioButton) convertView.findViewById(R.id.playerReady);
+        //RadioButton playerReady = (RadioButton) convertView.findViewById(R.id.playerReady);
         TextView playerName = (TextView) convertView.findViewById(R.id.playerName);
 
-        playerReady.setChecked(simpleUser.getPlayerData().isReady());
+        //playerReady.setChecked(simpleUser.getPlayerData().isReady());
         playerName.setText(simpleUser.getNickname());
 
 

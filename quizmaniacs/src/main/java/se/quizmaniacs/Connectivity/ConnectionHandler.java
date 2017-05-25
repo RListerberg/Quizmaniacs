@@ -14,7 +14,7 @@ import se.quizmaniacs.Data.DataBank;
 public class ConnectionHandler implements Runnable {
     private Socket socket;
     boolean connected = false;
-    private String host = "192.168.0.1";
+    private String host = "192.168.1.127";
     private int port = 8008;
 
 

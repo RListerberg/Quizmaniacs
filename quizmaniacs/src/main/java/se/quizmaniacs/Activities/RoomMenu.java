@@ -9,12 +9,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import se.quizmaniacs.Adapters.PlayerAdapter;
 import se.quizmaniacs.Controller.Controller;
@@ -25,9 +24,11 @@ public class RoomMenu extends AppCompatActivity {
 
     Button leaveBut;
     Button sendBtn;
-    ToggleButton readyToggle;
+    //ToggleButton readyToggle;
     TextView roomNameTextView;
     EditText roomMenuEditText;
+    TextView roomMenuChatArea;
+    ScrollView roomMenuChatScrollView;
 
     ListView roomMenuPlayerListView;
 
@@ -48,6 +49,8 @@ public class RoomMenu extends AppCompatActivity {
         roomNameTextView = (TextView) findViewById(R.id.roomMenuTitleName);
         roomMenuPlayerListView = (ListView) findViewById(R.id.roomMenuPlayerListView);
         roomMenuEditText = (EditText) findViewById(R.id.roomMenuEditText);
+        roomMenuChatArea = (TextView) findViewById(R.id.roomMenuChatArea);
+        roomMenuChatScrollView = (ScrollView) findViewById(R.id.roomMenuChatScrollView);
         populatePlayerList();
 
 
@@ -58,22 +61,25 @@ public class RoomMenu extends AppCompatActivity {
             }
         });
 
-        readyToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isReady) {
-                if (isReady) {
-                    Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerReadyCommand());
-                } else {
-                    Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerNotReadyCommand());
-                }
-            }
-        });
+        // readyToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        //   @Override
+        // public void onCheckedChanged(CompoundButton compoundButton, boolean isReady) {
+        //   if (isReady) {
+        //     Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerReadyCommand());
+        // } else {
+        //   Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerNotReadyCommand());
+        // }
+        // }
+        // });
 
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String message = roomMenuEditText.getText().toString();
                 Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerSendMessageCommand(message));
+                roomMenuEditText.setText("");
+                roomMenuChatScrollView.fullScroll(ScrollView.FOCUS_DOWN);
+
             }
         });
     }
@@ -94,8 +100,8 @@ public class RoomMenu extends AppCompatActivity {
         roomMenuPlayerListView.setAdapter(playerAdapter);
     }
 
-    public void addMessageToView(String message){
-        roomMenuEditText.append(message);
+    public void addMessageToView(String message) {
+        roomMenuChatArea.append(message);
     }
 
     public void showExitConfirmDialog() {
