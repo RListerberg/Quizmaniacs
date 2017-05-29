@@ -35,7 +35,7 @@ public class CommandHandler {
                 System.out.println("RECEIVED: " + command.type);
                 Type roomArrayListToken = new TypeToken<ArrayList<SimpleRoom>>() {
                 }.getType();
-                System.out.println(command.data);
+                System.out.println("Lobbylist =" + command.data);
                 DataBank.rooms = gson.fromJson(command.data, roomArrayListToken);
                 refreshLobbyList();
                 break;
@@ -43,9 +43,10 @@ public class CommandHandler {
                 System.out.println("RECEIVED: " + command.type);
                 Type playerArrayListToken = new TypeToken<ArrayList<SimpleUser>>() {
                 }.getType();
-                System.out.println(command.data);
+                System.out.println("Roomplayerlist = " + command.data);
                 DataBank.players = gson.fromJson(command.data, playerArrayListToken);
                 refreshRoomPlayerList();
+                break;
             case UPDATENICK:
                 System.out.println("RECEIVED: " + command.type);
                 DataBank.nickname = command.data;

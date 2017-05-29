@@ -114,11 +114,15 @@ public class RoomMenu extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         try {
                             for (int i = 0; i < DataBank.rooms.size(); i++) {
+                                System.out.println("Leave i: " + i);
                                 for (int j = 0; j < DataBank.rooms.get(i).getUsers().size(); j++) {
+                                    System.out.println("Leave j: " + j);
+                                    System.out.println(DataBank.rooms.get(i).getUsers().get(j).getNickname() + " : " + DataBank.nickname);
                                     if (DataBank.rooms.get(i).getUsers().get(j).getPortNr() == DataBank.portNr) {
+                                        System.out.println("Port: " + DataBank.rooms.get(i).getUsers().get(j).getPortNr() + " : " + DataBank.portNr);
                                         Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerLeaveCommand(DataBank.rooms.get(i)));
-                                        finish();
                                         Toast.makeText(getBaseContext(), "You have left the room", Toast.LENGTH_SHORT).show();
+                                        finish();
                                     }
                                 }
                             }
