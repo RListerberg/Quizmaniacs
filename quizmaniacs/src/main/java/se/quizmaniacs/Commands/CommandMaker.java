@@ -5,10 +5,6 @@ import com.google.gson.Gson;
 import se.quizmaniacs.Jdo.SimpleRoom;
 
 
-/**
- * Created by LeoAsp on 2017-01-30.
- */
-
 public class CommandMaker {
     Gson gson = new Gson();
 

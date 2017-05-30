@@ -13,9 +13,6 @@ import java.util.ArrayList;
 import se.quizmaniacs.Jdo.SimpleUser;
 import se.quizmaniacs.R;
 
-/**
- * Created by robin on 2017-03-20.
- */
 
 public class PlayerInGameAdapter extends ArrayAdapter {
     public PlayerInGameAdapter(Context context, ArrayList<SimpleUser> users) {

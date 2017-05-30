@@ -15,10 +15,6 @@ import se.quizmaniacs.Jdo.SimpleRoom;
 import se.quizmaniacs.Jdo.SimpleUser;
 import se.quizmaniacs.R;
 
-/**
- * Created by LeoAsp on 2017-02-07.
- */
-
 
 public class CommandHandler {
     Parser parser;

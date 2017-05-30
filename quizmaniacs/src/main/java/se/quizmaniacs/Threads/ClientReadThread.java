@@ -7,9 +7,6 @@ import java.util.Scanner;
 
 import se.quizmaniacs.Controller.Controller;
 
-/**
- * Created by LeoAsp on 2017-01-25.
- */
 
 public class ClientReadThread implements Runnable {
     private Socket socket;

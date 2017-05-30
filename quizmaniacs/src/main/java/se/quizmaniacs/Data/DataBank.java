@@ -7,9 +7,6 @@ import se.quizmaniacs.Activities.RoomMenu;
 import se.quizmaniacs.Jdo.SimpleRoom;
 import se.quizmaniacs.Jdo.SimpleUser;
 
-/**
- * Created by LeoAsp on 2017-02-13.
- */
 
 public class DataBank {
     public static ArrayList<SimpleRoom> rooms = new ArrayList<>();

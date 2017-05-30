@@ -7,9 +7,6 @@ import java.net.Socket;
 
 import se.quizmaniacs.Data.DataBank;
 
-/**
- * Created by LeoAsp on 2017-01-25.
- */
 
 public class ConnectionHandler implements Runnable {
     private Socket socket;

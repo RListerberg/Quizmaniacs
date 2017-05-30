@@ -4,9 +4,6 @@ import com.google.gson.Gson;
 
 import se.quizmaniacs.Commands.Command;
 
-/**
- * Created by LeoAsp on 2017-02-07.
- */
 
 public class Parser {
     Gson gson = new Gson();

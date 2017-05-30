@@ -6,11 +6,6 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-import se.quizmaniacs.Controller.Controller;
-
-/**
- * Created by LeoAsp on 2017-01-25.
- */
 
 public class ClientWriteThread implements Runnable {
     private boolean running = true;

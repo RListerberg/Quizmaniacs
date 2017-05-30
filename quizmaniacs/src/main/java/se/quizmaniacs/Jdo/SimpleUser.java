@@ -1,8 +1,5 @@
 package se.quizmaniacs.Jdo;
 
-/**
- * Created by LeoAsp on 2017-02-13.
- */
 
 public class SimpleUser {
     private String nickname;

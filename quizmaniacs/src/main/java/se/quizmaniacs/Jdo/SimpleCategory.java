@@ -2,10 +2,6 @@ package se.quizmaniacs.Jdo;
 
 import java.util.List;
 
-/**
- * Created by robin on 2017-03-01.
- */
-
 public class SimpleCategory {
 
     private int pieSize;

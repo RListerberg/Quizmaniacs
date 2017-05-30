@@ -6,9 +6,6 @@ import java.net.Socket;
 import se.quizmaniacs.Threads.ClientReadThread;
 import se.quizmaniacs.Threads.ClientWriteThread;
 
-/**
- * Created by LeoAsp on 2017-01-25.
- */
 
 public class DataHandler {
     ClientReadThread readThread;

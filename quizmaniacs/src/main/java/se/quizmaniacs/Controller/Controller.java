@@ -5,9 +5,6 @@ import se.quizmaniacs.Commands.CommandMaker;
 import se.quizmaniacs.Connectivity.ConnectionHandler;
 import se.quizmaniacs.Data.DataHandler;
 
-/**
- * Created by LeoAsp on 2017-01-30.
- */
 
 public class Controller {
 
