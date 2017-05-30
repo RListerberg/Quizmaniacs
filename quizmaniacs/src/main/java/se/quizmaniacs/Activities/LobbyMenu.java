@@ -61,11 +61,14 @@ public class LobbyMenu extends AppCompatActivity {
             public void onClick(View v) {
                 Controller.getDataHandler().send(Controller.getCommandMaker().makeGetLobbyList());
                 if (selectedRoom != null) {
-                    if (selectedRoom.getUsers().size() < selectedRoom.getMaxPlayers()) {
-                        startActivity(new Intent(LobbyMenu.this, RoomMenu.class));
-                        Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerJoinCommand(selectedRoom));
-                        Controller.getDataHandler().send(Controller.getCommandMaker().makeGetRoom(selectedRoom.getId()));
-                        System.out.println("PLAYER JOINED: " + selectedRoom.getName());
+                    if (DataBank.rooms.size() > 0) {
+                        if (selectedRoom.getUsers().size() < selectedRoom.getMaxPlayers()) {
+                            startActivity(new Intent(LobbyMenu.this, RoomMenu.class));
+                            Controller.getDataHandler().send(Controller.getCommandMaker().makePlayerJoinCommand(selectedRoom));
+                            Controller.getDataHandler().send(Controller.getCommandMaker().makeGetRoom(selectedRoom.getId()));
+                            System.out.println("PLAYER JOINED: " + selectedRoom.getName());
+                            selectedRoom = null;
+                        }
                     }
                 }
             }
