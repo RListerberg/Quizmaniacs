@@ -16,9 +16,7 @@ import se.quizmaniacs.R;
 public class MainMenu extends AppCompatActivity {
 
     Button mainMenuPlayBtn;
-    Button mainMenuConnectBtn;
     EditText mainMenuNickField;
-    EditText mainMenuIpField;
 
 
     @Override
@@ -30,17 +28,7 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
 
         mainMenuPlayBtn = (Button) findViewById(R.id.mainMenuPlayBtn);
-        mainMenuConnectBtn = (Button) findViewById(R.id.mainMenuConnectBtn);
         mainMenuNickField = (EditText) findViewById(R.id.mainMenuNickField);
-        mainMenuIpField = (EditText) findViewById(R.id.mainMenuIpField);
-
-        //mainMenuConnectBtn.setOnClickListener(new View.OnClickListener() {
-        //  @Override
-        //    public void onClick(View view) {
-        //  String ip = mainMenuIpField.getText().toString();
-        //    Controller.getConnectionHandler().setHost(ip);
-        //  }
-        //});
 
         mainMenuPlayBtn.setOnClickListener(new View.OnClickListener() {
             @Override

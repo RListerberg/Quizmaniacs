@@ -54,21 +54,4 @@
         android:minWidth="300dp"
         android:text="@string/enter" />
 
-    <EditText
-        android:id="@+id/mainMenuIpField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="IP"
-        android:inputType="textPersonName"
-        android:layout_below="@+id/mainMenuPlayBtn"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/mainMenuConnectBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mainMenuIpField"
-        android:layout_centerHorizontal="true"
-        android:text="Connect" />
 </RelativeLayout>

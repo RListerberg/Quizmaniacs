@@ -43,7 +43,8 @@
         android:dividerHeight="4dp"
         android:minHeight="63dp"
         android:paddingBottom="60dp"
-        android:paddingTop="30dp" />
+        android:paddingTop="30dp"
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/roomMenuTitleName"
